@@ -4,14 +4,9 @@ using System;
 
 public class Tool : EquipableObject {
 
-	void Start () {
+	protected override void Start () {
+        base.Start( );
         weight = 0.0f;
-        maxObjects = 1;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
     public bool Equals (Tool cmpTool) {

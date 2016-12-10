@@ -19,7 +19,7 @@ public class EquipableObject : MonoBehaviour
         }
     }
 
-    [SerializeField] string _objName;
+    string _objName;
     public string objName {
         get { return _objName; }
         protected set { _objName = value; }
@@ -37,30 +37,23 @@ public class EquipableObject : MonoBehaviour
         }
     }
 
-    [SerializeField] int _maxObjects;
-    public int maxObjects {
-        get { return _maxObjects; }
-        protected set {
-            if( value < 1 ) {
-                _maxObjects = 1;
-            }
-            else
-                _maxObjects = value;
-        }
+    protected virtual void Start( ) {
+
     }
 
     public void IncreaseObjectQuantity(int value) {
-        if( (currObjects + value) > maxObjects ) {
-            currObjects = maxObjects;
-        }
-        else {
-            currObjects += value;
-        }
+        currObjects += value;
     }
 
     public void DecreaseObjectQuantity(int value) {
         if( (currObjects - value) < 0 ) {
-            currObjects = 0;
+            EquipableObject[] stillOnGameobject = GetComponents<EquipableObject>( );
+            if( stillOnGameobject == null ) {
+                Destroy( gameObject );
+            }
+            else {
+                Destroy( this );
+            }
         }
         else {
             currObjects -= value;
