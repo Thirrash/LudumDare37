@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 {
     PlayerController controller;
     public PlayerStatistics stats { get; private set; }
+    public MaterialEquipment matEq { get; private set; }
+    public ToolsEpuipment toolEq { get; private set; }
 
     static Player _instance;
     public static Player instance {
@@ -24,5 +26,7 @@ public class Player : MonoBehaviour
         instance = this;
         controller = GetComponent<PlayerController>( );
         stats = GetComponent<PlayerStatistics>( );
+        matEq = GetComponent<MaterialEquipment>( );
+        toolEq = GetComponent<ToolsEpuipment>( );
     }
 }

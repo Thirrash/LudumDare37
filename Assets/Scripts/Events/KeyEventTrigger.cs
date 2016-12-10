@@ -33,6 +33,10 @@ public class KeyEventTrigger : MonoBehaviour
             EventManager.TriggerEvent( EventTypes.cameraUp );
         }
 
+        if( Input.GetButton( PlayerInput.Fire1 ) ) {
+            EventManager.TriggerEvent( EventTypes.playerPick );
+        }
+
         if( Input.GetButton( PlayerInput.Inventory ) ) {
             EventManager.TriggerEvent( EventTypes.showInventory );
         }

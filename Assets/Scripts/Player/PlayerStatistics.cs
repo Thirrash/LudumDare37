@@ -4,6 +4,8 @@ using System.Collections;
 [RequireComponent (typeof (PlayerSkills))]
 public class PlayerStatistics : MonoBehaviour 
 {
+    public PlayerSkills skills { get; private set; }
+
     [SerializeField] float _movementVerticalSpeed;
     public float movementVerticalSpeed {
         get {
@@ -49,9 +51,11 @@ public class PlayerStatistics : MonoBehaviour
         }
     }
 
+    public float currWeight = 0.0f;
+
     // Use this for initialization
     void Start () {
-	
+        skills = GetComponent<PlayerSkills>( );
 	}
 	
 	// Update is called once per frame

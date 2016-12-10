@@ -9,8 +9,8 @@ namespace Globals
         public static string Horizontal   = "Horizontal";
         public static string Vertical     = "Vertical";
         public static string Jump         = "Jump";
-        public static string MouseX       = "Mouse X";
-        public static string MouseY       = "Mouse Y";
+        public static string MouseX       = "MouseX";
+        public static string MouseY       = "MouseY";
         public static string MouseScroll  = "Mouse ScrollWheel";
         public static string Fire1        = "Fire1";
         public static string Fire2        = "Fire2";

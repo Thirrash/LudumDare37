@@ -68,6 +68,7 @@ public class MaterialEquipment : MonoBehaviour {
         {
             eqWeight += rr.weight * rr.currObjects;
         }
+        _stat.currWeight = eqWeight;
         if(eqWeight < _stat.maxWeight )
         {
             if(CheckExist(r) != null)
