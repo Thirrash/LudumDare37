@@ -32,9 +32,21 @@ public class PlayerStatistics : MonoBehaviour
             _cameraSpeed = value;
         }
     }
+    [SerializeField] float _maxWeight;
+    public float maxWeight
+    {
+        get
+        {
+            return _cameraSpeed * Time.deltaTime;
+        }
+        set
+        {
+            _cameraSpeed = value;
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
