@@ -39,6 +39,6 @@ public class ToolsEpuipment : MonoBehaviour {
     {
         Tool newT = toolsObj.AddComponent<Tool>( );
         newT.CopyFrom( t );
-        tools.Add(t);
+        tools.Add(newT);
     }
 }
