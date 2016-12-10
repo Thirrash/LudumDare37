@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (PlayerSkills))]
 public class PlayerStatistics : MonoBehaviour 
 {
     [SerializeField] float _movementVerticalSpeed;
@@ -60,15 +61,7 @@ public class PlayerStatistics : MonoBehaviour
         }
     }
 
-    [SerializeField] int _woodSkill;
-    public float woodSkill {
-        get {
-            return _woodSkill;
-        }
-        set {
-            _woodSkill += value;
-        }
-    }
+
 
 
 
