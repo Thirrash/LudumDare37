@@ -13,9 +13,15 @@ public class MaterialEquipment : MonoBehaviour {
         materialsObj = new GameObject( "Materials" );
         materialsObj.transform.parent = gameObject.transform;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    public List<Resource> GetList()
+    {
+        return material;
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
     public void SortByName()

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class ToolsEpuipment : MonoBehaviour {
 
@@ -22,6 +23,11 @@ public class ToolsEpuipment : MonoBehaviour {
             {
                 return t1.objName.CompareTo(t2.objName);
             });
+    }
+
+    public List<Tool> GetList()
+    {
+        return tools;
     }
 
     public bool Check(Tool t)

@@ -22,4 +22,18 @@ namespace Globals
         public static string Stats        = "Stats";
     }
     #endregion
+
+    public struct Material
+    {
+        string name;
+        int howMany;
+
+        public Material(string Name, int howMany)
+        {
+            name = Name;
+            this.howMany = howMany;
+        }
+    }
 }
+
+

@@ -6,11 +6,13 @@ public class WorkPlace : MonoBehaviour {
     private ToolsEpuipment _Tools;
     private MaterialEquipment _Material;
     private PlayerStatistics _Statistick;
+    private Book _book;
 	// Use this for initialization
 	void Start () {
         _Tools = player.GetComponent<ToolsEpuipment>();
         _Material = player.GetComponent<MaterialEquipment>();
         _Statistick = player.GetComponent<PlayerStatistics>();
+        _book = GetComponent<Book>();
 	}
 	
 	// Update is called once per frame
