@@ -15,6 +15,7 @@ public class Sun : MonoBehaviour {
 
     public Light down;
     public Light up;
+    public float speed = 1;
 
 
 	// Use this for initialization
@@ -23,6 +24,6 @@ public class Sun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(Time.deltaTime, 0, 0);
+        target.gameObject.transform.Rotate(Time.deltaTime*speed, 0, 0);
     }
 }
