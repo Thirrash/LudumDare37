@@ -70,7 +70,13 @@ public class PlayerController : MonoBehaviour
                 }
                 isTooltipToBeRefreshed = false;
             }
-            else if
+            else if( colliderOnMouse.gameObject.tag == Tags.Floor ) {
+                if( Vector3.Distance( transform.position,
+                                     colliderOnMouse.gameObject.transform.position) <= stats.buildDistance ) {
+                    colliderOnMouse.gameObject.GetComponentInParent<BuildPlace>( ).HighlightTile( colliderOnMouse.gameObject.transform.position );
+                    ResetTooltip( );
+                }
+            }
             else {
                 ResetTooltip( );
             }

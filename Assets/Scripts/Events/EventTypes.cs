@@ -15,5 +15,8 @@ public enum EventTypes {
     cameraRight,
 
     showInventory,
-    showStats
+    showStats,
+
+    placeObject,
+    rotateObject,
 }

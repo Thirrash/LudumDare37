@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent (typeof (MaterialEquipment) )]
 [RequireComponent (typeof (ToolsEpuipment) )]
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerStatistics stats { get; private set; }
     public MaterialEquipment matEq { get; private set; }
     public ToolsEpuipment toolEq { get; private set; }
+    public Texture cursor;
 
     static Player _instance;
     public static Player instance {
@@ -28,5 +30,13 @@ public class Player : MonoBehaviour
         stats = GetComponent<PlayerStatistics>( );
         matEq = GetComponent<MaterialEquipment>( );
         toolEq = GetComponent<ToolsEpuipment>( );
+    }
+
+    void OnGUI( ) {
+        GUI.DrawTexture( new Rect( new Vector2( Screen.width / 2 - 20,
+                                               Screen.height / 2 - 20),
+                                   new Vector2( 40,
+                                               40) ),
+                         cursor );
     }
 }

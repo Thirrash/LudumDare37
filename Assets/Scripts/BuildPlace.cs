@@ -3,9 +3,9 @@ using System.Collections;
 
 public class BuildPlace : MonoBehaviour
 {
-    BuildPlace _instance;
+    static BuildPlace _instance;
 
-    public BuildPlace instance {
+    public static BuildPlace instance {
         get { return _instance; }
         private set { _instance = value; }
     }
@@ -16,6 +16,8 @@ public class BuildPlace : MonoBehaviour
     public int[ , ] grid;
     GameObject[ , ] floorPiece;
     GameObject floorPrefab;
+    GameObject lastHighlightedPiece;
+    GameObject objectToPlace;
 
     void Start( ) {
         instance = this;
@@ -32,15 +34,22 @@ public class BuildPlace : MonoBehaviour
                                                                           pos.y,
                                                                           pos.z + j), Quaternion.identity,
                                                 gameObject.transform ) as GameObject;
+                lastHighlightedPiece = floorPiece[0, 0];
 
             }
         }
     }
 
     void Update( ) {
-
+        lastHighlightedPiece.GetComponent<Renderer>( ).material.color = Color.white;
     }
         
+    public void HighlightTile( Vector3 posToHighlight ) {
+        Vector3 highlightPos = posToHighlight - pos;
+        floorPiece[(int) highlightPos.x, (int) highlightPos.z].GetComponent<Renderer>( ).material.color = Color.blue;
+        lastHighlightedPiece = floorPiece[(int) highlightPos.x,
+                                          (int) highlightPos.z];
+    }
 
     public bool CheckIfAvailable( int i, int j ) {
         return (grid[i, j] == 0);
@@ -53,4 +62,7 @@ public class BuildPlace : MonoBehaviour
         grid[i, j] = value;
     }
 
+    public Vector3 GetTilePosition( int i, int j ) {
+        return floorPiece[i, j].transform.position;
+    }
 }
