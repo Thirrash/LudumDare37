@@ -37,11 +37,11 @@ public class KeyEventTrigger : MonoBehaviour
             EventManager.TriggerEvent( EventTypes.playerPick );
         }
 
-        if( Input.GetButton( PlayerInput.Inventory ) ) {
+        if( Input.GetButtonDown( PlayerInput.Inventory ) ) {
             EventManager.TriggerEvent( EventTypes.showInventory );
         }
 
-        if( Input.GetButton( PlayerInput.Stats ) ) {
+        if( Input.GetButtonDown( PlayerInput.Stats ) ) {
             EventManager.TriggerEvent( EventTypes.showStats );
         }
 	}

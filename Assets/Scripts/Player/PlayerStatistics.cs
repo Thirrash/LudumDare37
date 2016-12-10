@@ -10,7 +10,7 @@ public class PlayerStatistics : MonoBehaviour
     [SerializeField] float _movementVerticalSpeed;
     public float movementVerticalSpeed {
         get {
-            return _movementVerticalSpeed * Time.deltaTime;
+            return (Time.timeScale == 0.0f) ? (_movementVerticalSpeed) : (_movementVerticalSpeed * Time.deltaTime);
         }
         set {
             _movementVerticalSpeed = value;
@@ -20,7 +20,7 @@ public class PlayerStatistics : MonoBehaviour
     [SerializeField] float _movementHorizontalSpeed;
     public float movementHorizontalSpeed {
         get {
-            return _movementHorizontalSpeed * Time.deltaTime;
+            return (Time.timeScale == 0.0f) ? (_movementHorizontalSpeed) : (_movementHorizontalSpeed * Time.deltaTime);
         }
         set {
             _movementHorizontalSpeed = value;
