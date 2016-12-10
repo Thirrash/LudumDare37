@@ -35,4 +35,8 @@ public class ToolsEpuipment : MonoBehaviour {
         }
         return false;
     }
+    public void Add(Tool t)
+    {
+        tools.Add(t);
+    }
 }
