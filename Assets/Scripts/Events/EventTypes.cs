@@ -10,5 +10,8 @@ public enum EventTypes {
     cameraUp,
     cameraDown,
     cameraLeft,
-    cameraRight
+    cameraRight,
+
+    showInventory,
+    showStats
 }
