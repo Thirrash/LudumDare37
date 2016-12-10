@@ -21,13 +21,13 @@ public class CameraFirstPerson : CameraBase
         base.Update( );
         player.transform.rotation = Quaternion.Lerp( player.transform.rotation,
                                                      Quaternion.Euler( new Vector3( 0.0f,
-                                                                                  targetRotationY,
-                                                                                  0.0f) ),
+                                                                                    targetRotationY,
+                                                                                    0.0f) ),
                                                      player.stats.cameraSpeed );
         transform.rotation = Quaternion.Lerp( transform.rotation,
                                               Quaternion.Euler( new Vector3( targetRotationX,
-                                                                           targetRotationY,
-                                                                           0.0f ) ),
+                                                                             targetRotationY,
+                                                                             0.0f ) ),
                                               player.stats.cameraSpeed );
     }
 

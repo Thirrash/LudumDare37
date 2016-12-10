@@ -72,9 +72,11 @@ public class PlayerController : MonoBehaviour
                 player.matEq.Add( r );
                 r.DecreaseObjectQuantity( 1 );
             }
-            //foreach( Tool t in tools ) {
 
-            //}
+            foreach( Tool t in tools ) {
+                player.toolEq.Add( t );
+                t.DecreaseObjectQuantity( 1 );
+            }
         }
     }
 }

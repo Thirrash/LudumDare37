@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 public class ToolsEpuipment : MonoBehaviour {
 
-    [SerializeField]
-    List<Tool> tools = new List<Tool>();
-    // Use this for initialization
+    [SerializeField] List<Tool> tools = new List<Tool>();
+    GameObject toolsObj;
+
     void Start () {
-	
+        toolsObj = new GameObject( "Tools" );
+        toolsObj.transform.parent = gameObject.transform;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
@@ -37,6 +37,8 @@ public class ToolsEpuipment : MonoBehaviour {
     }
     public void Add(Tool t)
     {
+        Tool newT = toolsObj.AddComponent<Tool>( );
+        newT.CopyFrom( t );
         tools.Add(t);
     }
 }

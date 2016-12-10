@@ -78,7 +78,7 @@ public class MaterialEquipment : MonoBehaviour {
         {
             if(CheckExist(r) != null)
             {
-                CheckExist(r).currObjects += r.currObjects;
+                CheckExist(r).currObjects += 1;
             }
             else
             {
