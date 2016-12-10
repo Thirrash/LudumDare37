@@ -33,18 +33,6 @@ public class PlayerStatistics : MonoBehaviour
             _cameraSpeed = value;
         }
     }
-    [SerializeField] float _maxWeight;
-    public float maxWeight
-    {
-        get
-        {
-            return _cameraSpeed * Time.deltaTime;
-        }
-        set
-        {
-            _cameraSpeed = value;
-        }
-    }
 
     [SerializeField] float _maxWeight;
     public float maxWeight {
@@ -60,10 +48,6 @@ public class PlayerStatistics : MonoBehaviour
             }
         }
     }
-
-
-
-
 
     // Use this for initialization
     void Start () {
