@@ -204,6 +204,8 @@ MonoBehaviour:
   _movementVerticalSpeed: 3
   _movementHorizontalSpeed: 2
   _cameraSpeed: 45
+  _maxWeight: 100
+  currWeight: 0
 --- !u!114 &114000012594168116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac021bf16ee70345a5369cd5a68500c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWeightChangePerMeterAndKilo: 0.001
 --- !u!114 &114000012654093122
 MonoBehaviour:
   m_ObjectHideFlags: 1
