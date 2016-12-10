@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
+    PlayerController controller;
+    public PlayerStatistics stats { get; private set; }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    static Player _instance;
+    public static Player instance {
+        get {
+            return _instance;
+        }
+        private set {
+            _instance = value;
+        }
+    }
+
+    void Start( ) {
+        instance = this;
+        controller = GetComponent<PlayerController>( );
+        stats = GetComponent<PlayerStatistics>( );
+    }
 }
