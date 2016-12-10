@@ -48,5 +48,9 @@ public class KeyEventTrigger : MonoBehaviour
         if( Input.GetButton( PlayerInput.Jump ) ) {
             EventManager.TriggerEvent( EventTypes.playerJump );
         }
+
+        if( Input.GetButtonDown( PlayerInput.RotatePlacable ) ) {
+            EventManager.TriggerEvent( EventTypes.rotateObject );
+        }
 	}
 }

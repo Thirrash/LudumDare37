@@ -17,6 +17,5 @@ public enum EventTypes {
     showInventory,
     showStats,
 
-    placeObject,
-    rotateObject,
+    rotateObject
 }

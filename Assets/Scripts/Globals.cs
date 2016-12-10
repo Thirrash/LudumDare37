@@ -20,6 +20,7 @@ namespace Globals
         public static string Submit       = "Submit";
         public static string Inventory    = "Inventory";
         public static string Stats        = "Stats";
+        public static string RotatePlacable = "RotatePlacable";
     }
 
     public static class Tags
