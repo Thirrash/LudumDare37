@@ -28,7 +28,7 @@ public class EquipableObject : MonoBehaviour
     [SerializeField] int _currObjects;
     public int currObjects {
         get { return _currObjects; }
-        protected set {
+        set {
             if( value < 0 ) {
                 _currObjects = 0;
             }
