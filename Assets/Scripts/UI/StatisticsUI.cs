@@ -14,8 +14,8 @@ public class StatisticsUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         text.text = "Statistics\n" + "Max weight:  " + _stat.maxWeight + 
-            "\n" + "Player speed\nFrom side to side: "+_stat.movementHorizontalSpeed / Time.deltaTime+ 
-            "\nFront back: "+_stat.movementVerticalSpeed / Time.deltaTime + "Skill\nWood: "+ _stat.skills.woodSkill+
+            "\n" + "Player speed\nFrom side to side: "+_stat.movementHorizontalSpeed+ 
+            "\nFront back: "+_stat.movementVerticalSpeed + "\nSkill\nWood: "+ _stat.skills.woodSkill+
             "\n Stone: "+_stat.skills.stoneSkill +"\n Skin: "+ _stat.skills.skinSkill +"\nMetal: "+_stat.skills.metalSkill+
             "\n Man Mead: "+ _stat.skills.manMadeSkill;
 
