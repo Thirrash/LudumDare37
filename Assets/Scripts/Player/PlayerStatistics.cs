@@ -45,6 +45,33 @@ public class PlayerStatistics : MonoBehaviour
         }
     }
 
+    [SerializeField] float _maxWeight;
+    public float maxWeight {
+        get {
+            return _maxWeight;
+        }
+        set {
+            if( value < 0.0f ) {
+                _maxWeight = 0.0f;
+            }
+            else {
+                _maxWeight = value;
+            }
+        }
+    }
+
+    [SerializeField] int _woodSkill;
+    public float woodSkill {
+        get {
+            return _woodSkill;
+        }
+        set {
+            _woodSkill += value;
+        }
+    }
+
+
+
     // Use this for initialization
     void Start () {
 	
