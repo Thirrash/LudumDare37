@@ -21,6 +21,12 @@ namespace Globals
         public static string Inventory    = "Inventory";
         public static string Stats        = "Stats";
     }
+
+    public static class Tags
+    {
+        public static string Harvestable = "Harvestable";
+        public static string Floor = "Floor";
+    }
     #endregion
 
     public struct Material

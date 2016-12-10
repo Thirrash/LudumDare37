@@ -51,7 +51,7 @@ GameObject:
   - 114: {fileID: 114000013640124196}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010978009014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.2, y: 1, z: 89.42173}
+  m_LocalPosition: {x: 119.6, y: 11.17, z: 89.42173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -221,6 +221,8 @@ MonoBehaviour:
   _movementHorizontalSpeed: 2
   _cameraSpeed: 45
   _maxWeight: 100
+  _jumpForce: 200
+  _timeBetweenJumps: 0.8
   currWeight: 0
 --- !u!114 &114000012594168116
 MonoBehaviour:
@@ -233,7 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac021bf16ee70345a5369cd5a68500c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltipText: {fileID: 0}
   maxWeightChangePerMeterAndKilo: 0.001
+  colliderOnMouse: {fileID: 0}
 --- !u!114 &114000012654093122
 MonoBehaviour:
   m_ObjectHideFlags: 1

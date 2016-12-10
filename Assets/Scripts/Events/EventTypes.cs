@@ -6,6 +6,7 @@ public enum EventTypes {
     playerBackwards,
     playerLeft,
     playerRight,
+    playerJump,
     playerPick,
 
     cameraUp,

@@ -52,6 +52,18 @@ public class PlayerStatistics : MonoBehaviour
         }
     }
 
+    [SerializeField] float _jumpForce;
+    public float jumpForce {
+        get { return _jumpForce; }
+        set { _jumpForce = value; }
+    }
+
+    [SerializeField] float _timeBetweenJumps;
+    public float timeBetweenJumps {
+        get { return _timeBetweenJumps; }
+        set { _timeBetweenJumps = value; }
+    }
+
     public float currWeight = 0.0f;
 
     // Use this for initialization

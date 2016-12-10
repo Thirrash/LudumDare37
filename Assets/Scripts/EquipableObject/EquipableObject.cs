@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
-public class EquipableObject : MonoBehaviour 
+public class EquipableObject : MonoBehaviour
 {
     [SerializeField] float _weight;
     public float weight {
@@ -20,12 +21,14 @@ public class EquipableObject : MonoBehaviour
     }
 
     [SerializeField] string _objName;
+
     public string objName {
         get { return _objName; }
         protected set { _objName = value; }
     }
 
     [SerializeField] int _currObjects;
+
     public int currObjects {
         get { return _currObjects; }
         set {
@@ -37,19 +40,21 @@ public class EquipableObject : MonoBehaviour
         }
     }
 
+    public Image avatar;
+
     protected virtual void Start( ) {
 
     }
 
-    public void IncreaseObjectQuantity(int value) {
+    public void IncreaseObjectQuantity( int value ) {
         currObjects += value;
     }
 
-    public void DecreaseObjectQuantity(int value) {
+    public void DecreaseObjectQuantity( int value ) {
         if( (currObjects - value) <= 0 ) {
             EquipableObject[] stillOnGameobject = GetComponents<EquipableObject>( );
 
-            if( !CheckIfOtherEquipableObjects(stillOnGameobject) ) {
+            if( !CheckIfOtherEquipableObjects( stillOnGameobject ) && (gameObject.tag != "Player") ) {
                 Destroy( gameObject );
             }
             else {
@@ -61,7 +66,7 @@ public class EquipableObject : MonoBehaviour
         }
     }
 
-    bool CheckIfOtherEquipableObjects(EquipableObject[] objs) {
+    bool CheckIfOtherEquipableObjects( EquipableObject[] objs ) {
         foreach( EquipableObject i in objs ) {
             if( i.objName != objName ) {
                 return true;

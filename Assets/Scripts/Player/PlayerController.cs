@@ -1,23 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using UnityEngine.UI;
 
+using Globals;
 public class PlayerController : MonoBehaviour
 {
+    public Text tooltipText;
     Player player;
     PlayerStatistics stats;
     public float maxWeightChangePerMeterAndKilo = 0.0f;
     Ray ray;
     RaycastHit rayHit;
-    Collider colliderOnMouse;
+    public Collider colliderOnMouse;
+    float timeFromLastJump = 0.0f;
+    bool isAbleToJump = true;
+    string lastHarvestableName;
+    bool isTooltipToBeRefreshed = false;
 
     void Start( ) {
         player = Player.instance;
         stats = GetComponent<PlayerStatistics>( );
+        lastHarvestableName = "X";
         EventManager.StartListening( EventTypes.playerForward, MoveForward );
         EventManager.StartListening( EventTypes.playerBackwards,
                                      MoveBackwards );
         EventManager.StartListening( EventTypes.playerLeft, MoveLeft );
         EventManager.StartListening( EventTypes.playerRight, MoveRight );
+        EventManager.StartListening( EventTypes.playerJump, Jump );
         EventManager.StartListening( EventTypes.playerPick, Pick );
     }
 
@@ -26,15 +36,53 @@ public class PlayerController : MonoBehaviour
         EventManager.StopListening( EventTypes.playerBackwards, MoveBackwards );
         EventManager.StopListening( EventTypes.playerLeft, MoveLeft );
         EventManager.StopListening( EventTypes.playerRight, MoveRight );
+        EventManager.StopListening( EventTypes.playerJump, Jump );
         EventManager.StopListening( EventTypes.playerPick, Pick );
     }
 
     void Update( ) {
+        CheckOnMouse( );
+    }
+
+    void FixedUpdate( ) {
+        timeFromLastJump += Time.deltaTime;
+        if( timeFromLastJump >= stats.timeBetweenJumps ) {
+            isAbleToJump = true;
+        }
+    }
+
+    void CheckOnMouse( ) {
         ray = Camera.main.ScreenPointToRay( Input.mousePosition );
         if( Physics.Raycast( ray, out rayHit ) ) {
             colliderOnMouse = rayHit.collider;
-            Debug.Log( colliderOnMouse.gameObject.name );
         }
+        if( colliderOnMouse != null ) {
+            if( colliderOnMouse.gameObject.tag == Tags.Harvestable ) {
+                string currHarvestableName = colliderOnMouse.gameObject.name;
+                if( String.Equals( currHarvestableName, lastHarvestableName ) && !isTooltipToBeRefreshed ) {
+                    return;
+                }
+                lastHarvestableName = currHarvestableName;
+                EquipableObject[] eqObjs = colliderOnMouse.gameObject.GetComponents<EquipableObject>( );
+                tooltipText.text = colliderOnMouse.gameObject.name + "\n";
+                foreach( EquipableObject i in eqObjs ) {
+                    tooltipText.text += i.objName + ": " + i.currObjects + "\n";
+                }
+                isTooltipToBeRefreshed = false;
+            }
+            else if
+            else {
+                ResetTooltip( );
+            }
+        }
+        else {
+            ResetTooltip( );
+        }
+    }
+
+    void ResetTooltip( ) {
+        tooltipText.text = "";
+        isTooltipToBeRefreshed = true;
     }
 
     void MoveForward( ) {
@@ -61,9 +109,22 @@ public class PlayerController : MonoBehaviour
         stats.maxWeight += maxWeightChangePerMeterAndKilo * stats.movementHorizontalSpeed * stats.currWeight;
     }
 
+    void Jump( ) {
+        if( !isAbleToJump ) {
+            return;
+        }
+        GetComponent<Rigidbody>( ).AddForce( new Vector3( 0.0f,
+                                                          stats.jumpForce,
+                                                          0.0f),
+                                            ForceMode.Force );
+        isAbleToJump = false;
+        timeFromLastJump = 0.0f;
+    }
+
     void Pick( ) {
+        isTooltipToBeRefreshed = true;
         float distanceBetween = Vector3.Distance( transform.position,
-                                                 colliderOnMouse.gameObject.transform.position);
+                                                  colliderOnMouse.gameObject.transform.position);
         if( distanceBetween <= stats.pickDistance ) {
             Resource[] resources = colliderOnMouse.gameObject.GetComponents<Resource>( );
             Tool[] tools = colliderOnMouse.gameObject.GetComponents<Tool>( );

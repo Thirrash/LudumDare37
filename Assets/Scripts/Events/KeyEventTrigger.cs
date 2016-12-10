@@ -44,5 +44,9 @@ public class KeyEventTrigger : MonoBehaviour
         if( Input.GetButtonDown( PlayerInput.Stats ) ) {
             EventManager.TriggerEvent( EventTypes.showStats );
         }
+
+        if( Input.GetButton( PlayerInput.Jump ) ) {
+            EventManager.TriggerEvent( EventTypes.playerJump );
+        }
 	}
 }
