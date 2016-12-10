@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class MaterialEquipment : MonoBehaviour {
     [SerializeField]
     List<Resource> material = new List<Resource>();
     private PlayerStatistics _stat;
-	// Use this for initialization
+    GameObject materialsObj;
+
 	void Start () {
         _stat = GetComponent<PlayerStatistics>();
+        materialsObj = new GameObject( "Materials" );
+        materialsObj.transform.parent = gameObject.transform;
 	}
 	
 	// Update is called once per frame
@@ -61,6 +65,7 @@ public class MaterialEquipment : MonoBehaviour {
                 }
             });
     }
+
     public void Add(Resource r)
     {
         float eqWeight=0;
@@ -77,7 +82,9 @@ public class MaterialEquipment : MonoBehaviour {
             }
             else
             {
-                material.Add(r);
+                Resource newR = materialsObj.AddComponent<Resource>( );
+                newR.CopyFrom( r );
+                material.Add(newR);
             }
         }
     }

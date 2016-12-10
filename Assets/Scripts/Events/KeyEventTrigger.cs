@@ -33,7 +33,7 @@ public class KeyEventTrigger : MonoBehaviour
             EventManager.TriggerEvent( EventTypes.cameraUp );
         }
 
-        if( Input.GetButton( PlayerInput.Fire1 ) ) {
+        if( Input.GetButtonDown( PlayerInput.Fire1 ) ) {
             EventManager.TriggerEvent( EventTypes.playerPick );
         }
 

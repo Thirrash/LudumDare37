@@ -19,7 +19,7 @@ public class EquipableObject : MonoBehaviour
         }
     }
 
-    string _objName;
+    [SerializeField] string _objName;
     public string objName {
         get { return _objName; }
         protected set { _objName = value; }
@@ -46,9 +46,10 @@ public class EquipableObject : MonoBehaviour
     }
 
     public void DecreaseObjectQuantity(int value) {
-        if( (currObjects - value) < 0 ) {
+        if( (currObjects - value) <= 0 ) {
             EquipableObject[] stillOnGameobject = GetComponents<EquipableObject>( );
-            if( stillOnGameobject == null ) {
+
+            if( !CheckIfOtherEquipableObjects(stillOnGameobject) ) {
                 Destroy( gameObject );
             }
             else {
@@ -58,5 +59,15 @@ public class EquipableObject : MonoBehaviour
         else {
             currObjects -= value;
         }
+    }
+
+    bool CheckIfOtherEquipableObjects(EquipableObject[] objs) {
+        foreach( EquipableObject i in objs ) {
+            if( i.objName != objName ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -12,4 +12,10 @@ public class Tool : EquipableObject {
     public bool Equals (Tool cmpTool) {
         return String.Equals( cmpTool.objName, objName );
     }
+
+    public void CopyFrom(Tool tool) {
+        weight = tool.weight;
+        currObjects = tool.currObjects;
+        objName = tool.objName;
+    }
 }
