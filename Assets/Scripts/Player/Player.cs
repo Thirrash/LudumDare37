@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (MaterialEquipment) )]
+[RequireComponent (typeof (ToolsEpuipment) )]
+[RequireComponent (typeof (PlayerController) )]
+[RequireComponent (typeof (PlayerStatistics) )]
 public class Player : MonoBehaviour
 {
     PlayerController controller;
