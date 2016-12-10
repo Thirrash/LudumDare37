@@ -25,6 +25,18 @@ public class EquipableObject : MonoBehaviour
         protected set { _objName = value; }
     }
 
+    [SerializeField] int _currObjects;
+    public int currObjects {
+        get { return _currObjects; }
+        protected set {
+            if( value < 0 ) {
+                _currObjects = 0;
+            }
+            else
+                _currObjects = value;
+        }
+    }
+
     [SerializeField] int _maxObjects;
     public int maxObjects {
         get { return _maxObjects; }
@@ -37,11 +49,21 @@ public class EquipableObject : MonoBehaviour
         }
     }
 
-	void Start () {
-	
-	}
-	
-	void Update () {
-	
-	}
+    public void IncreaseObjectQuantity(int value) {
+        if( (currObjects + value) > maxObjects ) {
+            currObjects = maxObjects;
+        }
+        else {
+            currObjects += value;
+        }
+    }
+
+    public void DecreaseObjectQuantity(int value) {
+        if( (currObjects - value) < 0 ) {
+            currObjects = 0;
+        }
+        else {
+            currObjects -= value;
+        }
+    }
 }
