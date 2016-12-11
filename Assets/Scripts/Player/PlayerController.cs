@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 using Globals;
 
@@ -163,7 +164,11 @@ public class PlayerController : MonoBehaviour {
                 int tileX = BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x );
                 int tileZ = BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z );
                 currentPlacable.SetObject( tileX, tileZ, false );
-                currentPlacable.DecreaseObjectQuantity( 1 );
+                currentPlacable.currObjects -= 1;
+                if( currentPlacable.currObjects <= 0 ) {
+                    Destroy( currentPlacable );
+                }
+                //currentPlacable.DecreaseObjectQuantity( 1 );
             }
         }
     }
