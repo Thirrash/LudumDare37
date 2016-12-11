@@ -1,0 +1,118 @@
+﻿using UnityEngine;
+using System.Collections.Generic;
+[System.Serializable]
+public struct Trees
+{
+    public GameObject Tree1;
+    public GameObject Tree2;
+    public GameObject Tree3;
+}
+
+public class Forest : MonoBehaviour {
+    public List<GameObject> spawnLeafy = new List<GameObject>();
+    public List<GameObject> spawConiferous = new List<GameObject>();
+    public List<GameObject> spawnDeflaut = new List<GameObject>();
+    public Trees leafy;
+    public Trees coniferous;
+    public int leafyTree;
+    public int coniferousTree;
+    public int deflaut;
+    public int all;
+
+    private List<GameObject> _treeLeafy = new List<GameObject>();
+    private List<GameObject> _treeConiferous = new List<GameObject>();
+    private List<GameObject> _treeDeflaut = new List<GameObject>();
+
+    // Use this for initialization
+    void Start () {
+        all = leafyTree + coniferousTree + deflaut;
+        AddTreeExiste(spawConiferous);
+        AddTreeExiste(spawnDeflaut);
+        AddTreeExiste(spawnLeafy);
+        createForest(_treeConiferous, spawConiferous, coniferousTree, coniferous);
+        createForest(_treeLeafy, spawnLeafy, leafyTree, leafy);
+        createForest(_treeDeflaut, spawnDeflaut, deflaut);
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+
+	
+	}
+    void createForest(List<GameObject> Forest, List<GameObject> spawnd , int howMany, Trees tr)
+    {
+        GameObject az = RandSpawn(spawnd);
+        GameObject pl = Instantiate(RandPrefab(tr), az.transform) as GameObject;
+        az.GetComponent<TreeeExist>().setTree(pl);
+    }
+    void createForest(List<GameObject> Forest, List<GameObject> spawnd, int howMany)
+    {
+
+        GameObject az = RandSpawn(spawnd);
+        GameObject pl = Instantiate(RandPrefab(leafy,coniferous), az.transform) as GameObject;
+        az.GetComponent<TreeeExist>().setTree(pl);
+    }
+
+    GameObject RandPrefab(Trees tr, Trees tr2)
+    {
+        float z = Random.Range(1, 6);
+        z = Mathf.Round(z);
+        if (z == 1)
+        {
+            return tr.Tree1;
+        }
+        if (z == 2)
+        {
+            return tr.Tree2;
+        }
+        if(z == 5)
+        {
+            return tr.Tree3;
+        }
+        if (z == 4)
+        {
+            return tr2.Tree1;
+        }
+        if (z == 5)
+        {
+            return tr2.Tree2;
+        }
+        else
+        {
+            return tr2.Tree3;
+        }
+    }
+    GameObject RandPrefab(Trees tr)
+    {
+        float z = Random.Range(1, 3);
+        z = Mathf.Round(z);
+        if(z == 1)
+        {
+            return tr.Tree1;
+        }
+        if (z == 2)
+        {
+            return tr.Tree2;
+        }
+        else
+        {
+            return tr.Tree3;
+        }
+    }
+    void AddTreeExiste(List<GameObject> l)
+    {
+        foreach(GameObject b in l )
+        {
+            b.AddComponent<TreeeExist>();
+        }
+    }
+    GameObject RandSpawn(List<GameObject> l)
+    {
+        int z = (int)Random.Range(0, l.Count);
+        {
+            return l[z];
+        }
+    }
+    
+}
