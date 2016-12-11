@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlacableObject : Resource
-{
+public class PlacableObject : Resource {
     public int length;
     public int width;
     public int tileXStart;
@@ -32,30 +31,31 @@ public class PlacableObject : Resource
                 isObjectVisible = false;
             }
 
+            bool errorPlacementFlag = false;
             for( int i = tileXStart; i < tileXStart + length; i++ ) {
                 for( int j = tileYStart; j < tileYStart + width; j++ ) {
-
+                    if( !BuildPlace.instance.CheckIfAvailable( i, j ) ) {
+                        errorPlacementFlag = true;
+                        break;
+                    }
+                }
+                if( errorPlacementFlag ) {
+                    break;
                 }
             }
 
             tileXStart = tileX;
             tileYStart = tileY;
             instantiatedPrefab = Instantiate( prefab,
-                                              BuildPlace.instance.GetTilePosition( tileX,
-                                                                                   tileY),
-                                              prefab.transform.rotation,
-                                              BuildPlace.instance.transform.parent) as GameObject;
-            bool errorPlacementFlag = false;
+                BuildPlace.instance.GetTilePosition( tileX,
+                    tileY ),
+                prefab.transform.rotation,
+                BuildPlace.instance.transform.parent ) as GameObject;
+            
             for( int i = tileXStart; i < tileXStart + length; i++ ) {
                 for( int j = tileYStart; j < tileYStart + width; j++ ) {
-                    if( !BuildPlace.instance.AddObject( i, j, 1 ) ) {
-                        errorPlacementFlag = true;
-                        break;
-                    }
+                    BuildPlace.instance.AddObject( i, j, 1 );
                     BuildPlace.instance.PermanentlyHighlightTile( i, j );
-                }
-                if( errorPlacementFlag ) {
-                    break;
                 }
             }
             return instantiatedPrefab;
@@ -83,10 +83,10 @@ public class PlacableObject : Resource
         int tmpLength = length;
         length = width;
         width = -tmpLength;
-        rotateState = ( rotateState + 1 ) % 4;
+        rotateState = (rotateState + 1) % 4;
         Quaternion tmpQuaternion = Quaternion.Euler( new Vector3( prefab.transform.rotation.eulerAngles.x,
-                                                                  prefab.transform.rotation.eulerAngles.y + 90.0f,
-                                                                  prefab.transform.rotation.eulerAngles.z) );
+                                           prefab.transform.rotation.eulerAngles.y + 90.0f,
+                                           prefab.transform.rotation.eulerAngles.z ) );
         prefab.transform.rotation = tmpQuaternion;
     }
 }
