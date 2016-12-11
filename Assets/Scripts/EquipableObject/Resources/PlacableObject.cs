@@ -32,6 +32,12 @@ public class PlacableObject : Resource
                 isObjectVisible = false;
             }
 
+            for( int i = tileXStart; i < tileXStart + length; i++ ) {
+                for( int j = tileYStart; j < tileYStart + width; j++ ) {
+
+                }
+            }
+
             tileXStart = tileX;
             tileYStart = tileY;
             instantiatedPrefab = Instantiate( prefab,
@@ -39,10 +45,17 @@ public class PlacableObject : Resource
                                                                                    tileY),
                                               prefab.transform.rotation,
                                               BuildPlace.instance.transform.parent) as GameObject;
+            bool errorPlacementFlag = false;
             for( int i = tileXStart; i < tileXStart + length; i++ ) {
                 for( int j = tileYStart; j < tileYStart + width; j++ ) {
-                    BuildPlace.instance.AddObject( i, j, 1 );
+                    if( !BuildPlace.instance.AddObject( i, j, 1 ) ) {
+                        errorPlacementFlag = true;
+                        break;
+                    }
                     BuildPlace.instance.PermanentlyHighlightTile( i, j );
+                }
+                if( errorPlacementFlag ) {
+                    break;
                 }
             }
             return instantiatedPrefab;

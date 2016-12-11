@@ -22,12 +22,13 @@ GameObject:
   - 33: {fileID: 33000014069108620}
   - 23: {fileID: 23000010708853618}
   - 65: {fileID: 65000010776483628}
+  - 205: {fileID: 205000011758635574}
   m_Layer: 0
   m_Name: FloorTile
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &4000010178710502
 Transform:
@@ -90,3 +91,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!205 &205000011758635574
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012483989018}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.5783114
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

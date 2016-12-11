@@ -26,7 +26,7 @@ public class BuildPlace : MonoBehaviour
         pos = new Vector3( transform.position.x - gridXSize / 2,
                           transform.position.y + 0.5f,
                           transform.position.z - gridZSize / 2);
-        floorPrefab = Resources.Load( "FloorTile" ) as GameObject;
+        floorPrefab = Resources.Load( "FloorTile2" ) as GameObject;
         for( int i = 0; i < gridXSize; i++ ) {
             for( int j = 0; j < gridZSize; j++ ) {
                 grid[i, j] = 0;
@@ -34,36 +34,38 @@ public class BuildPlace : MonoBehaviour
                                                                           pos.y,
                                                                           pos.z + j), Quaternion.identity,
                                                 gameObject.transform ) as GameObject;
-                lastHighlightedPiece = floorPiece[0, 0];
+                
 
             }
         }
+        lastHighlightedPiece = floorPiece[0, 0];
     }
 
     void Update( ) {
-        lastHighlightedPiece.GetComponent<Renderer>( ).material.color = Color.white;
+        lastHighlightedPiece.GetComponentInChildren<Renderer>( ).material.color = Color.white;
     }
         
     public void HighlightTile( Vector3 posToHighlight ) {
         Vector3 highlightPos = posToHighlight - pos;
-        floorPiece[(int) highlightPos.x, (int) highlightPos.z].GetComponent<Renderer>( ).material.color = Color.blue;
+        floorPiece[(int) highlightPos.x, (int) highlightPos.z].GetComponentInChildren<Renderer>( ).material.color = Color.blue;
         lastHighlightedPiece = floorPiece[(int) highlightPos.x,
                                           (int) highlightPos.z];
     }
 
     public void PermanentlyHighlightTile( int i, int j ) {
-        floorPiece[i, j].GetComponent<Renderer>( ).material.color = Color.green;
+        floorPiece[i, j].GetComponentInChildren<Renderer>( ).material.color = Color.green;
     }
 
     public bool CheckIfAvailable( int i, int j ) {
         return (grid[i, j] == 0);
     }
 
-    public void AddObject( int i, int j, int value ) {
+    public bool AddObject( int i, int j, int value ) {
         if( !CheckIfAvailable( i, j ) ) {
-            return;
+            return false;
         }
         grid[i, j] = value;
+        return true;
     }
 
     public Vector3 GetTilePosition( int i, int j ) {
