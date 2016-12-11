@@ -1217,6 +1217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventory: {fileID: 1000011271634108}
   Statistic: {fileID: 1000010166841624}
+  Crafting: {fileID: 1000010318406820}
 --- !u!114 &114000011452612296
 MonoBehaviour:
   m_ObjectHideFlags: 1

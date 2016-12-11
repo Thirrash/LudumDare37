@@ -415,7 +415,7 @@ GameObject:
   - 114: {fileID: 114000011848400982}
   m_Layer: 0
   m_Name: Work Place
-  m_TagString: Untagged
+  m_TagString: Workplace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3213,7 +3213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68468de851ceb95439379102914a74a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!198 &198000011290595654
 ParticleSystem:
   m_ObjectHideFlags: 1

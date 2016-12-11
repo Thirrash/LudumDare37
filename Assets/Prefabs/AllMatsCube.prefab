@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011296076474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 129.6, y: 10.1, z: 95.76}
+  m_LocalPosition: {x: 160.3, y: 10.1, z: 147.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weight: 0
-  _objName: Shovel
+  _objName: Saw
   _currObjects: 1
   avatar: {fileID: 0}
 --- !u!114 &114000013691363932
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weight: 0
   _objName: 
-  _currObjects: 1
+  _currObjects: 10
   avatar: {fileID: 0}
 --- !u!114 &114000013772428578
 MonoBehaviour:

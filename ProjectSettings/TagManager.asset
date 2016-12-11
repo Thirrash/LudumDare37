@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Harvestable
   - Floor
+  - Workplace
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class ResoursesMAnager : MonoBehaviour {
     private MaterialEquipment _material;
 	// Use this for initialization
 	void Start () {
+        player = Player.instance.gameObject;
         _material = player.GetComponent<MaterialEquipment>();
 	}
 	

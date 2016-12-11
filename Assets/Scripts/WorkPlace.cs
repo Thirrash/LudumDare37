@@ -29,26 +29,38 @@ public class WorkPlace : MonoBehaviour {
     }
 
     public bool CheckIfRecipeCreatable( Recepiece rec ) {
-        return false;
-        /*
-        bool retValue = false;
-        Recepiece foundRecipe;
+        Recepiece foundRecipe = new Recepiece( );
         foreach( Recepiece r in GetList( ) ) {
             if( rec.objName == r.objName ) {
-                foundRecipe = r;
+                foundRecipe.CopyFrom(r);
                 break;
             }
         }
-        if( foundRecipe == null ) {
+        if( foundRecipe.objName == "--def--" ) {
             Debug.Log( "Recipe not found!" );
             return false;
         }
 
-        foreach( Globals.Material m in foundRecipe.ListMaterial ) {
-            //m.
+        foreach( Globals.Material m in foundRecipe.ListTool ) {
+            Tool tmpTool = _Tools.GetToolByName( m.name );
+            if( tmpTool == null ) {
+                return false;
+            }
+            if( m.howMany > tmpTool.currObjects ) {
+                return false;
+            }
         }
 
-        return false;
-        */
+        foreach( Globals.Material m in foundRecipe.ListMaterial ) {
+            Resource tmpRes = _Material.GetResourceByName( m.name );
+            if( tmpRes == null ) {
+                return false;
+            }
+            if( m.howMany > tmpRes.currObjects ) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

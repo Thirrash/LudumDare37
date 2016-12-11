@@ -16,6 +16,15 @@ public class ToolsEpuipment : MonoBehaviour {
 	
 	}
 
+    public Tool GetToolByName( string _name ) {
+        foreach( Tool i in tools ) {
+            if( i.objName == _name ) {
+                return i;
+            }
+        }
+        return null;
+    }
+
     public void SortByName()
     {
         tools.Sort(

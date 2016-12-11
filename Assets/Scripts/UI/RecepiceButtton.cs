@@ -8,7 +8,7 @@ public class RecepiceButtton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(Click);
+        _button.onClick.AddListener(() => Click());
         GetComponentInChildren<Text>().text = rec.objName;
 	}
 	
