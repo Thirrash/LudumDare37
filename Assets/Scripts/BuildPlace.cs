@@ -23,9 +23,9 @@ public class BuildPlace : MonoBehaviour
         instance = this;
         grid = new int[gridXSize, gridZSize];
         floorPiece = new GameObject[gridXSize, gridZSize];
-        pos = new Vector3( transform.position.x - gridXSize / 2,
+        pos = new Vector3( transform.position.x - gridXSize / 2 + 0.5f,
                           transform.position.y + 0.5f,
-                          transform.position.z - gridZSize / 2);
+                          transform.position.z - gridZSize / 2 + 0.5f);
         floorPrefab = Resources.Load( "FloorTile2" ) as GameObject;
         for( int i = 0; i < gridXSize; i++ ) {
             for( int j = 0; j < gridZSize; j++ ) {
