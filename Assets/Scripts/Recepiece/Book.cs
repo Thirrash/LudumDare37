@@ -6,6 +6,7 @@ public class Book : MonoBehaviour {
 
 	void Start () {
         recepiece.Add(new Wall1x4cs(gameObject));
+        recepiece.Add( new Wall2x4( gameObject ) );
 	}
 	
 

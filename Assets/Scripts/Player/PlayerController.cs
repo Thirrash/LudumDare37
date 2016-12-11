@@ -175,9 +175,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void ReplacePlacable( PlacableObject obj ) {
-        if( currentPlacable != null ) {
-            Destroy( currentPlacable );
-        }
         currentPlacable = obj;
     }
 }

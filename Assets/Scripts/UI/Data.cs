@@ -5,12 +5,21 @@ using System.Collections;
 public class Data : MonoBehaviour {
     public EquipableObject resourse;
     public Text text;
-	// Use this for initialization
+    Button but;
+
 	void Start () {
+        if( resourse.tag == "Placable" ) {
+            Debug.Log( resourse.objName );
+            but = gameObject.AddComponent<Button>( );
+            but.onClick.AddListener( ( ) => ChangePlacable( ) );
+        }
 	}
 	
-	// Update is called once per frame
 	void Update () {
         text.text = resourse.currObjects.ToString();
 	}
+
+    void ChangePlacable( ) {
+        Player.instance.controller.ReplacePlacable( resourse as PlacableObject );
+    }
 }

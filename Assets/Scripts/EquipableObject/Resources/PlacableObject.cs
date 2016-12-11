@@ -9,16 +9,26 @@ public class PlacableObject : Resource {
     public GameObject prefab;
     Quaternion prefabBaseRot;
     GameObject instantiatedPrefab;
-    bool isObjectToBeSet = false;
     int rotateState = 0;
 
     protected override void Start( ) {
         base.Start( );
         prefabBaseRot = prefab.transform.rotation;
+        tag = "Placable";
     }
 
     void OnDestroy( ) {
         prefab.transform.rotation = prefabBaseRot;
+    }
+
+    public void CopyFrom(PlacableObject res) {
+        weight = res.weight;
+        currObjects = 1;
+        objName = res.objName;
+        tag = res.tag;
+        length = res.length;
+        width = res.width;
+        prefab = res.prefab;
     }
 
     public GameObject SetObject( int tileX, int tileY, bool isPreview ) {

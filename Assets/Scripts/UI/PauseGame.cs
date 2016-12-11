@@ -5,11 +5,14 @@ public class PauseGame : MonoBehaviour {
     public GameObject Inventory;
     public GameObject Statistic;
     public GameObject Crafting;
-	// Use this for initialization
+    public GameObject Workplace;
+    Vector3 playerPos;
+
 	void Start () {
         EventManager.StartListening( EventTypes.showStats, ActivateStats );
         EventManager.StartListening( EventTypes.showInventory, ActivateInventory );
         EventManager.StartListening( EventTypes.showCrafting, ActivateCrafting );
+        playerPos = Player.instance.gameObject.transform.position;
 	}
 	
     void OnDestroy( ) {
@@ -17,12 +20,12 @@ public class PauseGame : MonoBehaviour {
         EventManager.StopListening( EventTypes.showInventory, ActivateInventory );
         EventManager.StopListening( EventTypes.showCrafting, ActivateCrafting );
     }
-
-	// Update is called once per frame
+        
 	void Update () {
         if(Statistic.activeSelf || Inventory.activeSelf || Crafting.activeSelf)
         {
             Time.timeScale = 0;
+            Player.instance.gameObject.transform.position = playerPos;
             Cursor.lockState = CursorLockMode.None;
         }
         if (!Statistic.activeSelf && !Inventory.activeSelf && !Crafting.activeSelf)
@@ -34,13 +37,18 @@ public class PauseGame : MonoBehaviour {
 
     void ActivateStats( ) {
         Statistic.SetActive( !Statistic.activeSelf );
+        playerPos = Player.instance.gameObject.transform.position;
     }
 
     void ActivateInventory( ) {
         Inventory.SetActive( !Inventory.activeSelf );
+        playerPos = Player.instance.gameObject.transform.position;
     }
 
     void ActivateCrafting( ) {
-        Crafting.SetActive( !Crafting.activeSelf );
+        if( Vector3.Distance( Player.instance.gameObject.transform.position, Workplace.transform.position ) <= Player.instance.stats.pickDistance ) {
+            Crafting.SetActive( !Crafting.activeSelf );
+        }
+        playerPos = Player.instance.gameObject.transform.position;
     }
 }

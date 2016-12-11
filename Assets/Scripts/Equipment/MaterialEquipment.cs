@@ -88,6 +88,24 @@ public class MaterialEquipment : MonoBehaviour {
         }
     }
 
+    public void Add( PlacableObject r ) {
+        float eqWeight = 0;
+        foreach( Resource rr in material ) {
+            eqWeight += rr.weight * rr.currObjects;
+        }
+        _stat.currWeight = eqWeight;
+        if( eqWeight < _stat.maxWeight ) {
+            if( CheckExist( r ) != null ) {
+                CheckExist( r ).currObjects += 1;
+            }
+            else {
+                PlacableObject newR = materialsObj.AddComponent<PlacableObject>( );
+                newR.CopyFrom( r );
+                material.Add( newR );
+            }
+        }
+    }
+
     Resource CheckExist( Resource r ) {
         foreach( Resource rr in material ) {
             if( r.objName == rr.objName ) {

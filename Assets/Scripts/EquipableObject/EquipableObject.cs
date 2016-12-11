@@ -41,6 +41,7 @@ public class EquipableObject : MonoBehaviour
     }
 
     public Image avatar;
+    public string tag;
 
     protected virtual void Start( ) {
 
