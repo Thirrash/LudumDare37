@@ -12,7 +12,9 @@ public class WorkPlace : MonoBehaviour {
         _Tools = player.GetComponent<ToolsEpuipment>();
         _Material = player.GetComponent<MaterialEquipment>();
         _Statistick = player.GetComponent<PlayerStatistics>();
-        _book = GetComponent<Book>();
+        _book = GetComponentInChildren<Book>();
+        Debug.Log(_book.GetList());
+        Debug.Log(_Material);
 	}
 	
 	// Update is called once per frame

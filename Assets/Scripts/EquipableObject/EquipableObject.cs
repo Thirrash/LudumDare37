@@ -10,7 +10,7 @@ public class EquipableObject : MonoBehaviour
         get {
             return _weight;
         }
-        protected set {
+        set {
             if( value < 0.0f ) {
                 _weight = 0.0f;
             }
@@ -24,7 +24,7 @@ public class EquipableObject : MonoBehaviour
 
     public string objName {
         get { return _objName; }
-        protected set { _objName = value; }
+        set { _objName = value; }
     }
 
     [SerializeField] int _currObjects;
