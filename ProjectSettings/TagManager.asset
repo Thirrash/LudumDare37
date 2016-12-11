@@ -7,6 +7,7 @@ TagManager:
   - Harvestable
   - Floor
   - Workplace
+  - Placed
   layers:
   - Default
   - TransparentFX

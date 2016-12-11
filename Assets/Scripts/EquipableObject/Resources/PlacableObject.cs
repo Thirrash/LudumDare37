@@ -13,7 +13,9 @@ public class PlacableObject : Resource {
 
     protected override void Start( ) {
         base.Start( );
-        prefabBaseRot = prefab.transform.rotation;
+        if( prefab != null ) {
+            prefabBaseRot = prefab.transform.rotation;
+        }
         tag = "Placable";
     }
 

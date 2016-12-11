@@ -24,7 +24,7 @@ GameObject:
   - 95: {fileID: 95000013295831392}
   - 65: {fileID: 65000010640307056}
   m_Layer: 0
-  m_Name: Wall4x4
+  m_Name: Wall4x4Window
   m_TagString: Placed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

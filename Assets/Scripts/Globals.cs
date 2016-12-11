@@ -25,6 +25,7 @@ namespace Globals
     public static class Tags {
         public static string Harvestable = "Harvestable";
         public static string Floor = "Floor";
+        public static string Placed = "Placed";
     }
     #endregion
 

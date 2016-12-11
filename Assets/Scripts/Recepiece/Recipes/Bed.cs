@@ -4,22 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-class Wall2x4 : Recepiece
+class Bed : Recepiece
 {
-    public Wall2x4(GameObject ga)
+    public Bed(GameObject ga)
     {
-        ListMaterial.Add(new Globals.Material("Wall1x4", 2));
+        ListMaterial.Add(new Globals.Material("Wood", 3));
+        ListMaterial.Add(new Globals.Material("Skin", 1));
         ListTool.Add(new Globals.Material("Hammer"));
-        image = Resources.Load("Image/Wall/Wall2x4") as Image;
-        objName = "Wall2x4";
+        ListTool.Add(new Globals.Material("Knife"));
+        image = Resources.Load("Image/Items/Bed") as Image;
+        objName = "Bed";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 2;
         rec.width = 1;
         rec.objName = objName;
         rec.weight = 3.2f;
-        rec.prefab = Resources.Load("Wall/Wall2x4") as GameObject;
+        rec.prefab = Resources.Load("Items/Bed") as GameObject;
         rec.currObjects = 1;
         createObject = rec;
     }
 }
-

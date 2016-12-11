@@ -114,6 +114,10 @@ public class PlayerController : MonoBehaviour {
                     ResetTooltip( );
                 }
             }
+            else if( colliderOnMouse.gameObject.tag == Tags.Placed ) {
+                tooltipText.text = colliderOnMouse.gameObject.name;
+
+            }
             else {
                 ResetTooltip( );
             }
