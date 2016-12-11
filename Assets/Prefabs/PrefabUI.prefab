@@ -21,6 +21,7 @@ GameObject:
   - 224: {fileID: 224000010966200436}
   - 222: {fileID: 222000010515592166}
   - 114: {fileID: 114000010068285122}
+  - 114: {fileID: 114000010004147734}
   m_Layer: 5
   m_Name: PrefabUI
   m_TagString: Untagged
@@ -45,6 +46,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114000010004147734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010559660572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7d39065b47b234c9c96bd1e1b61cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourse: {fileID: 0}
+  text: {fileID: 114000013784774684}
 --- !u!114 &114000010068285122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +147,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 80, y: 15}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000010966200436
 RectTransform:

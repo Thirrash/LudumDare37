@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
                 }
                 isTooltipToBeRefreshed = false;
             }
-            else if
             else {
                 ResetTooltip( );
             }
