@@ -47,7 +47,7 @@ public class Forest : MonoBehaviour {
             GameObject az = RandSpawn(spawnd);
             if(az.GetComponent<TreeeExist>().existe == false)
             {
-                GameObject pl = Instantiate(RandPrefab(tr), az.transform) as GameObject;
+                GameObject pl = Instantiate(RandPrefab(tr), az.transform.position, Quaternion.identity, az.transform) as GameObject;
                 az.GetComponent<TreeeExist>().setTree(pl);
                 p++;
             }
@@ -62,7 +62,7 @@ public class Forest : MonoBehaviour {
             GameObject az = RandSpawn(spawnd);
             if (az.GetComponent<TreeeExist>().existe == false)
             {
-                GameObject pl = Instantiate(RandPrefab(leafy, coniferous), az.transform) as GameObject;
+                GameObject pl = Instantiate(RandPrefab(leafy, coniferous), az.transform.position, Quaternion.identity, az.transform) as GameObject;
                 az.GetComponent<TreeeExist>().setTree(pl);
                 p++;
             }
