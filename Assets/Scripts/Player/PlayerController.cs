@@ -168,7 +168,6 @@ public class PlayerController : MonoBehaviour {
                 if( currentPlacable.currObjects <= 0 ) {
                     Destroy( currentPlacable );
                 }
-                //currentPlacable.DecreaseObjectQuantity( 1 );
             }
         }
     }

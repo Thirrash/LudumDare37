@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class Data : MonoBehaviour {
+public class Data : EventTrigger {
     public EquipableObject resourse;
     public Text text;
     Button but;
@@ -21,5 +22,13 @@ public class Data : MonoBehaviour {
 
     void ChangePlacable( ) {
         Player.instance.controller.ReplacePlacable( resourse as PlacableObject );
+    }
+
+    void OnPointerEnter( ) {
+        EqTooltip.textInstance.text = resourse.objName + ": " + resourse.currObjects;
+    }
+
+    void OnPointerExit( ) {
+        EqTooltip.textInstance.text = "";
     }
 }
