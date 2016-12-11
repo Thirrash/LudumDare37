@@ -9,7 +9,7 @@ public class PlacableObject : Resource {
     public GameObject prefab;
     Quaternion prefabBaseRot;
     GameObject instantiatedPrefab;
-    bool isObjectVisible = false;
+    bool isObjectToBeSet = false;
     int rotateState = 0;
 
     protected override void Start( ) {
@@ -21,60 +21,70 @@ public class PlacableObject : Resource {
         prefab.transform.rotation = prefabBaseRot;
     }
 
-    public GameObject SetObject( int tileX, int tileY ) {
-        if( !CheckIfPlacementPossible( tileX, tileY ) ) {
-            return null;
-        }
-        else {
-            if( isObjectVisible && instantiatedPrefab != null ) {
-                Destroy( instantiatedPrefab );
-                isObjectVisible = false;
-            }
-
-            bool errorPlacementFlag = false;
+    public GameObject SetObject( int tileX, int tileY, bool isPreview ) {
+        if( isPreview && instantiatedPrefab != null ) {
+            Destroy( instantiatedPrefab );
             for( int i = tileXStart; i < tileXStart + length; i++ ) {
                 for( int j = tileYStart; j < tileYStart + width; j++ ) {
-                    if( !BuildPlace.instance.CheckIfAvailable( i, j ) ) {
-                        errorPlacementFlag = true;
-                        break;
-                    }
+                    BuildPlace.instance.AddObject( i, j, 0 );
                 }
-                if( errorPlacementFlag ) {
+            }
+        }
+
+        tileXStart = tileX;
+        tileYStart = tileY;
+
+        bool errorPlacementFlag = false;
+        for( int i = tileXStart; i < tileXStart + length; i++ ) {
+            for( int j = tileYStart; j < tileYStart + width; j++ ) {
+                if( !CheckIfPlacementPossible( i, j ) ) {
+                    errorPlacementFlag = true;
                     break;
                 }
             }
-
-            tileXStart = tileX;
-            tileYStart = tileY;
-            instantiatedPrefab = Instantiate( prefab,
-                BuildPlace.instance.GetTilePosition( tileX,
-                    tileY ),
-                prefab.transform.rotation,
-                BuildPlace.instance.transform.parent ) as GameObject;
-            
-            for( int i = tileXStart; i < tileXStart + length; i++ ) {
-                for( int j = tileYStart; j < tileYStart + width; j++ ) {
-                    BuildPlace.instance.AddObject( i, j, 1 );
-                    BuildPlace.instance.PermanentlyHighlightTile( i, j );
-                }
+            if( errorPlacementFlag ) {
+                return null;
             }
-            return instantiatedPrefab;
         }
+
+
+        instantiatedPrefab = Instantiate( prefab,
+            BuildPlace.instance.GetTilePosition( tileX,
+                tileY ),
+            prefab.transform.rotation,
+            BuildPlace.instance.transform.parent ) as GameObject;
+        
+        for( int i = tileXStart; i < tileXStart + length; i++ ) {
+            for( int j = tileYStart; j < tileYStart + width; j++ ) {
+                if( isPreview ) {
+                    BuildPlace.instance.AddObject( i, j, 0 );
+                }
+                else {
+                    BuildPlace.instance.AddObject( i, j, 1 );
+                }
+
+                //BuildPlace.instance.PermanentlyHighlightTile( i, j );
+            }
+        }
+
+
+
+        if( !isPreview ) {
+            instantiatedPrefab.GetComponent<BoxCollider>( ).enabled = true;
+            instantiatedPrefab = null;
+        }
+        return instantiatedPrefab;
     }
 
     bool CheckIfPlacementPossible( int tileX, int tileY ) {
-        for( int i = 0; i < length; i++ ) {
-            for( int j = 0; j < width; j++ ) {
-                if( tileX + length - 1 >= BuildPlace.instance.gridXSize || tileX + length + 1 < 0 ) {
-                    return false;
-                }
-                if( tileY + width - 1 >= BuildPlace.instance.gridZSize || tileY + width + 1 < 0 ) {
-                    return false;
-                }
-                if( !BuildPlace.instance.CheckIfAvailable( i, j ) ) {
-                    return false;
-                }
-            }
+        if( tileX + length - 1 >= BuildPlace.instance.gridXSize || tileX + length + 1 < 0 ) {
+            return false;
+        }
+        if( tileY + width - 1 >= BuildPlace.instance.gridZSize || tileY + width + 1 < 0 ) {
+            return false;
+        }
+        if( !BuildPlace.instance.CheckIfAvailable( tileX, tileY ) ) {
+            return false;
         }
         return true;
     }

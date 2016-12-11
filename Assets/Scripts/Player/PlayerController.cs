@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 using Globals;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     public Text tooltipText;
     Player player;
     PlayerStatistics stats;
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour
         lastHarvestableName = "X";
         EventManager.StartListening( EventTypes.playerForward, MoveForward );
         EventManager.StartListening( EventTypes.playerBackwards,
-                                     MoveBackwards );
+            MoveBackwards );
         EventManager.StartListening( EventTypes.playerLeft, MoveLeft );
         EventManager.StartListening( EventTypes.playerRight, MoveRight );
         EventManager.StartListening( EventTypes.playerJump, Jump );
@@ -77,18 +76,16 @@ public class PlayerController : MonoBehaviour
             else if( colliderOnMouse.gameObject.tag == Tags.Floor ) {
                 PlacableObject placable = GetComponent<PlacableObject>( );
 
-                
+
                 if( Vector3.Distance( transform.position,
-                                      colliderOnMouse.gameObject.transform.position) <= stats.buildDistance ) {
-                    if( lastPlacedOnFloor != null ) {
-                        Destroy( lastPlacedOnFloor );
-                    }
+                        colliderOnMouse.gameObject.transform.position ) <= stats.buildDistance ) {
+
                     BuildPlace.instance.HighlightTile( colliderOnMouse.gameObject.transform.position );
                     if( placable == null )
                         return;
                     lastPlacedOnFloor = placable.SetObject( BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x ),
-                                                            BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z ));
-                    
+                        BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z ),
+                        true );
                     ResetTooltip( );
                 }
                 else {
@@ -108,25 +105,25 @@ public class PlayerController : MonoBehaviour
 
     void MoveForward( ) {
         transform.Translate( transform.forward * stats.movementVerticalSpeed,
-                             Space.World );
+            Space.World );
         stats.maxWeight += maxWeightChangePerMeterAndKilo * stats.movementVerticalSpeed * stats.currWeight;
     }
 
     void MoveBackwards( ) {
         transform.Translate( -transform.forward * stats.movementVerticalSpeed,
-                             Space.World );
+            Space.World );
         stats.maxWeight += maxWeightChangePerMeterAndKilo * stats.movementVerticalSpeed * stats.currWeight;
     }
 
     void MoveLeft( ) {
         transform.Translate( -transform.right * stats.movementHorizontalSpeed,
-                             Space.World );
+            Space.World );
         stats.maxWeight += maxWeightChangePerMeterAndKilo * stats.movementHorizontalSpeed * stats.currWeight;
     }
 
     void MoveRight( ) {
         transform.Translate( transform.right * stats.movementHorizontalSpeed,
-                             Space.World );
+            Space.World );
         stats.maxWeight += maxWeightChangePerMeterAndKilo * stats.movementHorizontalSpeed * stats.currWeight;
     }
 
@@ -135,9 +132,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
         GetComponent<Rigidbody>( ).AddForce( new Vector3( 0.0f,
-                                                          stats.jumpForce,
-                                                          0.0f ),
-                                             ForceMode.Force );
+                stats.jumpForce,
+                0.0f ),
+            ForceMode.Force );
         isAbleToJump = false;
         timeFromLastJump = 0.0f;
     }
@@ -146,7 +143,7 @@ public class PlayerController : MonoBehaviour
         if( colliderOnMouse.gameObject.tag == Tags.Harvestable ) {
             isTooltipToBeRefreshed = true;
             float distanceBetween = Vector3.Distance( transform.position,
-                                                      colliderOnMouse.gameObject.transform.position );
+                                        colliderOnMouse.gameObject.transform.position );
             if( distanceBetween <= stats.pickDistance ) {
                 Resource[] resources = colliderOnMouse.gameObject.GetComponents<Resource>( );
                 Tool[] tools = colliderOnMouse.gameObject.GetComponents<Tool>( );
@@ -167,7 +164,7 @@ public class PlayerController : MonoBehaviour
             if( placable != null ) {
                 int tileX = BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x );
                 int tileZ = BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z );
-                placable.SetObject( tileX, tileZ );
+                placable.SetObject( tileX, tileZ, false );
                 placable.DecreaseObjectQuantity( 1 );
             }
         }

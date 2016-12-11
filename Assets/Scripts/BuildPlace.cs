@@ -61,9 +61,6 @@ public class BuildPlace : MonoBehaviour
     }
 
     public bool AddObject( int i, int j, int value ) {
-        if( !CheckIfAvailable( i, j ) ) {
-            return false;
-        }
         grid[i, j] = value;
         return true;
     }
