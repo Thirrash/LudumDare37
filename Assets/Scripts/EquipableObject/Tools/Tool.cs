@@ -8,6 +8,7 @@ public class Tool : EquipableObject {
         base.Start( );
         weight = 0.0f;
         tag = "Tool";
+        currObjects = 1;
 	}
 
     public bool Equals (Tool cmpTool) {
