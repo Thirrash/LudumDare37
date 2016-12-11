@@ -740,15 +740,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 40
     m_Right: 0
-    m_Top: 70
+    m_Top: 50
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 150, y: 150}
+  m_Spacing: {x: 30, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &114000010143435328
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224000012180649450}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6755555
+  m_Size: 0.6944444
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1048,7 +1048,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!114 &114000010938117412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1707,15 +1707,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: -20
-    m_Right: 0
-    m_Top: 70
+    m_Left: 50
+    m_Right: 250
+    m_Top: 50
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 30, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &114000013025076466
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224000013285092608}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.6755555
+  m_Size: 0.6944444
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

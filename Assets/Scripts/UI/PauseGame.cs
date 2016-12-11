@@ -24,12 +24,14 @@ public class PauseGame : MonoBehaviour {
 	void Update () {
         if(Statistic.activeSelf || Inventory.activeSelf || Crafting.activeSelf)
         {
+            Player.instance.controller.StopListeningInput( );
             Time.timeScale = 0;
-            Player.instance.gameObject.transform.position = playerPos;
+            //Player.instance.gameObject.transform.position = playerPos;
             Cursor.lockState = CursorLockMode.None;
         }
         if (!Statistic.activeSelf && !Inventory.activeSelf && !Crafting.activeSelf)
         {
+            Player.instance.controller.StartListeningInput( );
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
         }

@@ -64,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010607668826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.27}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0.088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -227,6 +227,7 @@ MonoBehaviour:
   maxWeightChangePerMeterAndKilo: 0.001
   currentPlacable: {fileID: 0}
   colliderOnMouse: {fileID: 0}
+  isListening: 0
 --- !u!114 &114000012654093122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,6 +256,7 @@ MonoBehaviour:
   _metalSkill: 0
   _skinSkill: 0
   _manMadeSkill: 0
+  _generalSkill: 0
 --- !u!114 &114000014201474272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,7 +285,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

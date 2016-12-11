@@ -20,12 +20,24 @@ public class PlayerController : MonoBehaviour {
     string lastHarvestableName;
     bool isTooltipToBeRefreshed = false;
     GameObject lastPlacedOnFloor;
+    public bool isListening;
 
     void Start( ) {
         currentPlacable = GetComponent<PlacableObject>( );
         player = Player.instance;
         stats = GetComponent<PlayerStatistics>( );
         lastHarvestableName = "X";
+        StartListeningInput( );
+    }
+
+    void OnDestroy( ) {
+        StopListeningInput( );
+    }
+
+    public void StartListeningInput( ) {
+        if( isListening ) {
+            return;
+        }
         EventManager.StartListening( EventTypes.playerForward, MoveForward );
         EventManager.StartListening( EventTypes.playerBackwards,
             MoveBackwards );
@@ -34,9 +46,14 @@ public class PlayerController : MonoBehaviour {
         EventManager.StartListening( EventTypes.playerJump, Jump );
         EventManager.StartListening( EventTypes.playerPick, Pick );
         EventManager.StartListening( EventTypes.rotateObject, RotatePlacable );
+
+        isListening = true;
     }
 
-    void OnDestroy( ) {
+    public void StopListeningInput( ) {
+        if( !isListening ) {
+            return;
+        }
         EventManager.StopListening( EventTypes.playerForward, MoveForward );
         EventManager.StopListening( EventTypes.playerBackwards, MoveBackwards );
         EventManager.StopListening( EventTypes.playerLeft, MoveLeft );
@@ -44,6 +61,8 @@ public class PlayerController : MonoBehaviour {
         EventManager.StopListening( EventTypes.playerJump, Jump );
         EventManager.StopListening( EventTypes.playerPick, Pick );
         EventManager.StopListening( EventTypes.rotateObject, RotatePlacable );
+
+        isListening = false;
     }
 
     void Update( ) {
@@ -83,6 +102,9 @@ public class PlayerController : MonoBehaviour {
                     BuildPlace.instance.HighlightTile( colliderOnMouse.gameObject.transform.position );
                     if( currentPlacable == null )
                         return;
+                    if( currentPlacable.currObjects <= 0 )
+                        return;
+                    
                     lastPlacedOnFloor = currentPlacable.SetObject( BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x ),
                         BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z ),
                         true );
@@ -161,12 +183,11 @@ public class PlayerController : MonoBehaviour {
         }
         else if( colliderOnMouse.gameObject.tag == Tags.Floor ) {
             if( currentPlacable != null ) {
-                int tileX = BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x );
-                int tileZ = BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z );
-                currentPlacable.SetObject( tileX, tileZ, false );
-                currentPlacable.currObjects -= 1;
-                if( currentPlacable.currObjects <= 0 ) {
-                    Destroy( currentPlacable );
+                if( currentPlacable.currObjects > 0 ) {
+                    int tileX = BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x );
+                    int tileZ = BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z );
+                    currentPlacable.SetObject( tileX, tileZ, false );
+                    currentPlacable.currObjects -= 1;
                 }
             }
         }

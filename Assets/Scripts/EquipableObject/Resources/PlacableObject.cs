@@ -29,6 +29,7 @@ public class PlacableObject : Resource {
         length = res.length;
         width = res.width;
         prefab = res.prefab;
+        avatar = res.avatar;
     }
 
     public GameObject SetObject( int tileX, int tileY, bool isPreview ) {

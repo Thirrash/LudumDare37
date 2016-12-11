@@ -18,5 +18,6 @@ public class Tool : EquipableObject {
         weight = tool.weight;
         currObjects = tool.currObjects;
         objName = tool.objName;
+        avatar = tool.avatar;
     }
 }

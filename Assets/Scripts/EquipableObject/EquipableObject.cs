@@ -40,7 +40,7 @@ public class EquipableObject : MonoBehaviour
         }
     }
 
-    public Image avatar;
+    public Sprite avatar;
     public string tag;
 
     protected virtual void Start( ) {
@@ -59,7 +59,10 @@ public class EquipableObject : MonoBehaviour
                 Destroy( gameObject );
             }
             else {
-                Destroy( this );
+                if( gameObject.tag != "Player" ) {
+                    Debug.Log( "Destroy!" );
+                    Destroy( this );
+                }
             }
         }
         else {

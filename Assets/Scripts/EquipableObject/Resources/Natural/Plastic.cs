@@ -7,5 +7,6 @@ public class Plastic : Resource
         base.Start( );
         objName = "Plastic";
         weight = 0.1f;
+        avatar = Resources.Load<Sprite>( "Image/Resources/Plastic" );
     }
 }

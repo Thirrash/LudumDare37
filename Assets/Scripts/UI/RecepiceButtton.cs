@@ -25,10 +25,11 @@ public class RecepiceButtton : EventTrigger
     public void Click()
     {
         matEq.Add( rec.createObject );
+        Player.instance.stats.skills.generalSkill++;
 
         List<Resource> matList = matEq.GetList( );
         foreach( Globals.Material m in rec.ListMaterial ) {
-            matEq.GetResourceByName( m.name ).currObjects -= m.howMany;
+            matEq.GetResourceByName( m.name ).currObjects -= Mathf.CeilToInt((float)(m.howMany * Player.instance.stats.skills.generalSkill) / 100.0f);
         }
     }
     public override void OnPointerEnter(PointerEventData data)

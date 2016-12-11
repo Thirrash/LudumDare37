@@ -53,4 +53,14 @@ public class PlayerSkills : MonoBehaviour
         }
     }
 
+    [SerializeField] int _generalSkill;
+    public int generalSkill {
+        get {
+            return _generalSkill;
+        }
+        set {
+            _generalSkill = (_generalSkill >= 50) ? 50 : value;
+        }
+    }
+
 }

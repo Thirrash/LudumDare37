@@ -15,8 +15,6 @@ public class WorkPlace : MonoBehaviour {
         _Material = player.GetComponent<MaterialEquipment>();
         _Statistick = player.GetComponent<PlayerStatistics>();
         _book = GetComponentInChildren<Book>();
-        Debug.Log(_book.GetList());
-        Debug.Log(_Material);
 	}
 	
 

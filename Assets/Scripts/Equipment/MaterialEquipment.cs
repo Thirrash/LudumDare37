@@ -12,6 +12,7 @@ public class MaterialEquipment : MonoBehaviour {
         _stat = GetComponent<PlayerStatistics>( );
         materialsObj = new GameObject( "Materials" );
         materialsObj.transform.parent = gameObject.transform;
+        materialsObj.tag = "Player";
     }
 
     public Resource GetResourceByName( string _name ) {

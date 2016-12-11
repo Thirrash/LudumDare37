@@ -7,5 +7,6 @@ public class Stone : Resource
         base.Start( );
         objName = "Stone";
         weight = 0.4f;
+        avatar = Resources.Load<Sprite>( "Image/Resources/Stone" );
     }
 }

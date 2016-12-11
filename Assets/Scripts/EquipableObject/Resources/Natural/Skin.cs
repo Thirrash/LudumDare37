@@ -7,5 +7,6 @@ public class Skin : Resource
         base.Start( );
         objName = "Skin";
         weight = 0.15f;
+        avatar = Resources.Load<Sprite>( "Image/Resources/Skin" );
     }
 }

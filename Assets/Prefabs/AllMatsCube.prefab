@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 114000010870520448}
   - 114: {fileID: 114000012854577060}
   - 114: {fileID: 114000011899666916}
+  - 114: {fileID: 114000013659947328}
   m_Layer: 0
   m_Name: AllMatsCube
   m_TagString: Harvestable
@@ -192,6 +193,22 @@ MonoBehaviour:
   _weight: 0
   _objName: Saw
   _currObjects: 1
+  avatar: {fileID: 0}
+  tag: 
+--- !u!114 &114000013659947328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011296076474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d554a5a5afb9f4418b0d4e55929a656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weight: 0
+  _objName: 
+  _currObjects: 10
   avatar: {fileID: 0}
   tag: 
 --- !u!114 &114000013691363932

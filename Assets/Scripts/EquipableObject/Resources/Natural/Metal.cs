@@ -7,5 +7,6 @@ public class Metal : Resource
         base.Start( );
         objName = "Metal";
         weight = 0.5f;
+        avatar = Resources.Load<Sprite>( "Image/Resources/Metal" );
     }
 }

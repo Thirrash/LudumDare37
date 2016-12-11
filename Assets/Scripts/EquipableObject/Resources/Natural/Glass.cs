@@ -7,5 +7,6 @@ public class Glass : Resource
         base.Start( );
         objName = "Glass";
         weight = 0.25f;
+        avatar = Resources.Load<Sprite>( "Image/Resources/Glass" );
 	}
 }

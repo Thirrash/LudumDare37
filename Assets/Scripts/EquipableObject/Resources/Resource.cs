@@ -14,5 +14,6 @@ public class Resource : EquipableObject
         currObjects = 1;
         objName = res.objName;
         tag = res.tag;
+        avatar = res.avatar;
     }
 }

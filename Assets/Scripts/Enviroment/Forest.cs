@@ -127,8 +127,6 @@ public class Forest : MonoBehaviour {
     {
         int z = (int)Random.Range(0, l.Count);
         {
-            Debug.Log(l);
-            Debug.Log(l[z]);
             return l[z];
             
         }
