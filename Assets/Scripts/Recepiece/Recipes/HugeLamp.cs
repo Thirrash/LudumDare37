@@ -14,7 +14,7 @@ class HugeLamp : Recepiece
         ListMaterial.Add(new Globals.Material("Fuel", 2));
         ListTool.Add(new Globals.Material("Screwdriver"));
         ListTool.Add(new Globals.Material("Bucket"));
-        image = Resources.Load("Image/Items/HugeLamp") as Image;
+        image = Resources.Load<Sprite>("Image/Items/HugeLamp");
         objName = "HugeLamp";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

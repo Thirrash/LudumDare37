@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Recepiece {
     public List<Globals.Material> ListMaterial = new List<Globals.Material>();
     public List<Globals.Material> ListTool = new List<Globals.Material>();
-    public Image image;
+    public Sprite image;
     public string objName;
     public PlacableObject createObject;
     

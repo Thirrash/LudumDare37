@@ -10,7 +10,7 @@ using System.Linq;
     {
         ListMaterial.Add(new Globals.Material("Wood", 5));
         ListTool.Add(new Globals.Material("Saw"));
-        image = Resources.Load("Image/Wall/Wall1x4") as Image;
+        image = Resources.Load<Sprite>("Image/Wall/Wall1x4");
         objName = "Wall1x4";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

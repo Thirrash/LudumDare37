@@ -13,7 +13,7 @@ class Wall4x4Window : Recepiece
         ListMaterial.Add(new Globals.Material("Plastic", 2));
         ListTool.Add(new Globals.Material("Hammer"));
         ListTool.Add(new Globals.Material("Saw"));
-        image = Resources.Load("Image/Wall/Wall4x4Window") as Image;
+        image = Resources.Load<Sprite>("Image/Wall/Wall4x4Window");
         objName = "Wall4x4Window";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

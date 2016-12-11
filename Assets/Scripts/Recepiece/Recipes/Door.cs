@@ -10,7 +10,7 @@ class Door : Recepiece
     {
         ListMaterial.Add(new Globals.Material("Wood", 2));
         ListMaterial.Add(new Globals.Material("Metal", 1));
-        image = Resources.Load("Image/Items/Door") as Image;
+        image = Resources.Load<Sprite>("Image/Items/Door");
         objName = "Door";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

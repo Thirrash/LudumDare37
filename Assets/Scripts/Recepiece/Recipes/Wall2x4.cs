@@ -10,7 +10,7 @@ class Wall2x4 : Recepiece
     {
         ListMaterial.Add(new Globals.Material("Wall1x4", 2));
         ListTool.Add(new Globals.Material("Hammer"));
-        image = Resources.Load("Image/Wall/Wall2x4") as Image;
+        image = Resources.Load<Sprite>("Image/Wall/Wall2x4");
         objName = "Wall2x4";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 2;

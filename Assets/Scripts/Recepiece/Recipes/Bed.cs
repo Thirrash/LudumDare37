@@ -12,7 +12,7 @@ class Bed : Recepiece
         ListMaterial.Add(new Globals.Material("Skin", 1));
         ListTool.Add(new Globals.Material("Hammer"));
         ListTool.Add(new Globals.Material("Knife"));
-        image = Resources.Load("Image/Items/Bed") as Image;
+        image = Resources.Load<Sprite>("Image/Items/Bed");
         objName = "Bed";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 2;
