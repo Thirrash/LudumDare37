@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     Player player;
     PlayerStatistics stats;
     public float maxWeightChangePerMeterAndKilo = 0.0f;
+    public PlacableObject currentPlacable;
     Ray ray;
     RaycastHit rayHit;
     public Collider colliderOnMouse;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     GameObject lastPlacedOnFloor;
 
     void Start( ) {
+        currentPlacable = GetComponent<PlacableObject>( );
         player = Player.instance;
         stats = GetComponent<PlayerStatistics>( );
         lastHarvestableName = "X";
@@ -74,16 +76,13 @@ public class PlayerController : MonoBehaviour {
                 isTooltipToBeRefreshed = false;
             }
             else if( colliderOnMouse.gameObject.tag == Tags.Floor ) {
-                PlacableObject placable = GetComponent<PlacableObject>( );
-
-
                 if( Vector3.Distance( transform.position,
                         colliderOnMouse.gameObject.transform.position ) <= stats.buildDistance ) {
 
                     BuildPlace.instance.HighlightTile( colliderOnMouse.gameObject.transform.position );
-                    if( placable == null )
+                    if( currentPlacable == null )
                         return;
-                    lastPlacedOnFloor = placable.SetObject( BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x ),
+                    lastPlacedOnFloor = currentPlacable.SetObject( BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x ),
                         BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z ),
                         true );
                     ResetTooltip( );
@@ -160,20 +159,25 @@ public class PlayerController : MonoBehaviour {
             }
         }
         else if( colliderOnMouse.gameObject.tag == Tags.Floor ) {
-            PlacableObject placable = GetComponent<PlacableObject>( );
-            if( placable != null ) {
+            if( currentPlacable != null ) {
                 int tileX = BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x );
                 int tileZ = BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z );
-                placable.SetObject( tileX, tileZ, false );
-                placable.DecreaseObjectQuantity( 1 );
+                currentPlacable.SetObject( tileX, tileZ, false );
+                currentPlacable.DecreaseObjectQuantity( 1 );
             }
         }
     }
 
     void RotatePlacable( ) {
-        PlacableObject placable = GetComponent<PlacableObject>( );
-        if( placable != null ) {
-            placable.Rotate( );
+        if( currentPlacable != null ) {
+            currentPlacable.Rotate( );
         }
+    }
+
+    public void ReplacePlacable( PlacableObject obj ) {
+        if( currentPlacable != null ) {
+            Destroy( currentPlacable );
+        }
+        currentPlacable = obj;
     }
 }
