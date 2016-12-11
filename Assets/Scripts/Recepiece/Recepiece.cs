@@ -12,11 +12,19 @@ public class Recepiece {
     
     public Recepiece()
     {
-
+        objName = "--def--";
     }
 
     public PlacableObject Create()
     {
         return createObject;
+    }
+
+    public void CopyFrom(Recepiece r) {
+        ListMaterial = r.ListMaterial;
+        ListTool = r.ListTool;
+        image = r.image;
+        objName = r.objName;
+        createObject = r.createObject;
     }
 }

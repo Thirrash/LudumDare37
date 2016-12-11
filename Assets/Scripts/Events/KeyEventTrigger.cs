@@ -52,5 +52,9 @@ public class KeyEventTrigger : MonoBehaviour
         if( Input.GetButtonDown( PlayerInput.RotatePlacable ) ) {
             EventManager.TriggerEvent( EventTypes.rotateObject );
         }
+
+        if( Input.GetButtonDown( PlayerInput.Fire2 ) ) {
+            EventManager.TriggerEvent( EventTypes.showCrafting );
+        }
 	}
 }

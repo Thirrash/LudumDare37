@@ -24,6 +24,7 @@ public class RecepiceMenager : MonoBehaviour {
         }
         foreach(GameObject b in createConent)
         {
+            Debug.Log(_workPlace.CheckIfRecipeCreatable(b.GetComponent<RecepiceButtton>().rec));
             IsInteracteblrButton(b, _workPlace.CheckIfRecipeCreatable(b.GetComponent<RecepiceButtton>().rec));
         }
 

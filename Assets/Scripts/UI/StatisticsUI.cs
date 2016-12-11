@@ -8,6 +8,7 @@ public class StatisticsUI : MonoBehaviour {
     private PlayerStatistics _stat;
 	// Use this for initialization
 	void Start () {
+        player = Player.instance.gameObject;
         _stat = player.GetComponent<PlayerStatistics>();
 	}
 	

@@ -11,6 +11,7 @@ public class ToolsMenager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        player = Player.instance.gameObject;
         _tool = player.GetComponent<ToolsEpuipment>();
     }
 

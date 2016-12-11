@@ -16,6 +16,7 @@ public enum EventTypes {
 
     showInventory,
     showStats,
+    showCrafting,
 
     rotateObject
 }
