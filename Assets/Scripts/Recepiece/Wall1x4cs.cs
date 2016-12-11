@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,7 +9,7 @@ using System.Linq;
     public Wall1x4cs(GameObject ga)
     {
         ListMaterial.Add(new Globals.Material("Wood", 5));
-        image = null;
+        image = Resources.Load("Image/Wall/Wall1x4") as Image;
         objName = "Wall 1 x 4";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;
@@ -16,6 +17,7 @@ using System.Linq;
         rec.objName = objName;
         rec.weight = 1.6f;
         rec.prefab = Resources.Load("Wall/Wall1x4") as GameObject;
+        rec.currObjects = 1;
         createObject = rec;
     }
 }
