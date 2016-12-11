@@ -11,7 +11,7 @@ class Chair : Recepiece
         ListMaterial.Add(new Globals.Material("Wood", 2));
         ListMaterial.Add(new Globals.Material("Nail", 1));
         ListTool.Add(new Globals.Material("Hammer"));
-        image = Resources.Load("Image/Items/Chair") as Image;
+        image = Resources.Load<Sprite>("Image/Items/Chair");
         objName = "Chair";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

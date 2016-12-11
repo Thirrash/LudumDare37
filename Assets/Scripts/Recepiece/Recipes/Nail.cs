@@ -9,7 +9,7 @@ class Nail : Recepiece
     public Nail(GameObject ga)
     {
         ListMaterial.Add(new Globals.Material("Metal", 3));
-        image = Resources.Load("Image/Items/Nail") as Image;
+        image = Resources.Load<Sprite>("Image/Items/Nail");
         objName = "Nail";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

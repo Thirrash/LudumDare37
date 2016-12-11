@@ -15,7 +15,7 @@ class Drawer : Recepiece
         ListTool.Add(new Globals.Material("Screwdriver"));
         ListTool.Add(new Globals.Material("Hammer"));
         ListTool.Add(new Globals.Material("Knife"));
-        image = Resources.Load("Image/Items/Drawer") as Image;
+        image = Resources.Load<Sprite>("Image/Items/Drawer");
         objName = "Drawer";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

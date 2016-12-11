@@ -12,7 +12,7 @@ class SmallLamp : Recepiece
         ListMaterial.Add(new Globals.Material("Fuel", 1));
         ListTool.Add(new Globals.Material("Screwdriver"));
         ListTool.Add(new Globals.Material("Bucket"));
-        image = Resources.Load("Image/Items/SmallLamp") as Image;
+        image = Resources.Load<Sprite>("Image/Items/SmallLamp");
         objName = "SmallLamp";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;

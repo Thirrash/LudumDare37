@@ -12,7 +12,7 @@ class Table : Recepiece
         ListMaterial.Add(new Globals.Material("Metal", 2));
         ListMaterial.Add(new Globals.Material("Nail", 1));
         ListTool.Add(new Globals.Material("Hammer"));
-        image = Resources.Load("Image/Items/Table") as Image;
+        image = Resources.Load<Sprite>("Image/Items/Table");
         objName = "Table";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
         rec.length = 1;
