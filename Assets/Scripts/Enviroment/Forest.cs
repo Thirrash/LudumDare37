@@ -36,10 +36,24 @@ public class Forest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //ClearList(_treeLeafy);
+        //ClearList(_treeDeflaut);
+        //ClearList(_treeConiferous);
+        //if(_treeLeafy.Count<leafyTree)
+        //{
+        //    createForest(_treeLeafy, spawnLeafy, leafyTree - _treeLeafy.Count, leafy);
+        //}
+        //if (_treeConiferous.Count < coniferousTree)
+        //{
+        //    createForest(_treeConiferous, spawConiferous, coniferousTree - _treeConiferous.Count, coniferous);
+        //}
+        //if (_treeDeflaut.Count < deflaut)
+        //{
+        //    createForest(_treeLeafy, spawnLeafy, leafyTree - _treeDeflaut.Count, leafy);
+        //}
 
 
-	
-	}
+    }
     void createForest(List<GameObject> Forest, List<GameObject> spawnd , int howMany, Trees tr)
     {
         for(int  p = 0; p<howMany;)
@@ -130,6 +144,11 @@ public class Forest : MonoBehaviour {
             return l[z];
             
         }
+    }
+
+    void ClearList(List<GameObject> l)
+    {
+        l.RemoveAll( x => x == null);
     }
     
 }
