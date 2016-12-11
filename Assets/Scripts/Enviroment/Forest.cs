@@ -42,16 +42,32 @@ public class Forest : MonoBehaviour {
 	}
     void createForest(List<GameObject> Forest, List<GameObject> spawnd , int howMany, Trees tr)
     {
-        GameObject az = RandSpawn(spawnd);
-        GameObject pl = Instantiate(RandPrefab(tr), az.transform) as GameObject;
-        az.GetComponent<TreeeExist>().setTree(pl);
+        for(int  p = 0; p<howMany;)
+        {
+            GameObject az = RandSpawn(spawnd);
+            if(az.GetComponent<TreeeExist>().existe == false)
+            {
+                GameObject pl = Instantiate(RandPrefab(tr), az.transform) as GameObject;
+                az.GetComponent<TreeeExist>().setTree(pl);
+                p++;
+            }
+            
+        }
+        
     }
     void createForest(List<GameObject> Forest, List<GameObject> spawnd, int howMany)
     {
+        for (int p = 0; p < howMany;)
+        {
+            GameObject az = RandSpawn(spawnd);
+            if (az.GetComponent<TreeeExist>().existe == false)
+            {
+                GameObject pl = Instantiate(RandPrefab(leafy, coniferous), az.transform) as GameObject;
+                az.GetComponent<TreeeExist>().setTree(pl);
+                p++;
+            }
+        }
 
-        GameObject az = RandSpawn(spawnd);
-        GameObject pl = Instantiate(RandPrefab(leafy,coniferous), az.transform) as GameObject;
-        az.GetComponent<TreeeExist>().setTree(pl);
     }
 
     GameObject RandPrefab(Trees tr, Trees tr2)
@@ -111,7 +127,10 @@ public class Forest : MonoBehaviour {
     {
         int z = (int)Random.Range(0, l.Count);
         {
+            Debug.Log(l);
+            Debug.Log(l[z]);
             return l[z];
+            
         }
     }
     
