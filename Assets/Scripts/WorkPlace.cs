@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WorkPlace : MonoBehaviour {
-    public GameObject player;
+    private GameObject player;
     private ToolsEpuipment _Tools;
     private MaterialEquipment _Material;
     private PlayerStatistics _Statistick;
     private Book _book;
-	// Use this for initialization
+
 	void Start () {
+        player = Player.instance.gameObject;
         _Tools = player.GetComponent<ToolsEpuipment>();
         _Material = player.GetComponent<MaterialEquipment>();
         _Statistick = player.GetComponent<PlayerStatistics>();
@@ -17,8 +19,36 @@ public class WorkPlace : MonoBehaviour {
         Debug.Log(_Material);
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}
+
+    public List<Recepiece> GetList( ) {
+        return _book.GetList( );
+    }
+
+    public bool CheckIfRecipeCreatable( Recepiece rec ) {
+        return false;
+        /*
+        bool retValue = false;
+        Recepiece foundRecipe;
+        foreach( Recepiece r in GetList( ) ) {
+            if( rec.objName == r.objName ) {
+                foundRecipe = r;
+                break;
+            }
+        }
+        if( foundRecipe == null ) {
+            Debug.Log( "Recipe not found!" );
+            return false;
+        }
+
+        foreach( Globals.Material m in foundRecipe.ListMaterial ) {
+            //m.
+        }
+
+        return false;
+        */
+    }
 }

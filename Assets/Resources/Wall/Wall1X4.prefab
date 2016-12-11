@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000013210090062}
   - 33: {fileID: 33000013664219778}
   - 23: {fileID: 23000011738963964}
+  - 65: {fileID: 65000012253129058}
   m_Layer: 0
   m_Name: Wall1X4
   m_TagString: Untagged
@@ -77,3 +78,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010679700750}
   m_Mesh: {fileID: 4300000, guid: 147c7d6d2d4c7774789f006fea0191da, type: 3}
+--- !u!65 &65000012253129058
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010679700750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 4}
+  m_Center: {x: 0, y: 0, z: 2}

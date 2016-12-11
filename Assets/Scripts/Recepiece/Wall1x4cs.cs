@@ -8,6 +8,7 @@ using System.Linq;
     public Wall1x4cs(GameObject ga)
     {
         ListMaterial.Add(new Globals.Material("Wood", 5));
+        ListTool.Add( new Globals.Material( "Saw" ) );
         image = null;
         objName = "Wall 1 x 4";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
