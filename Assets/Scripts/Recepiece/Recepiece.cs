@@ -27,4 +27,19 @@ public class Recepiece {
         objName = r.objName;
         createObject = r.createObject;
     }
+    public string GetString()
+    {
+        string t;
+        t = "Material: \n";
+        foreach(Globals.Material m in ListMaterial)
+        {
+            t += m.name + ": " + m.howMany+ "  ";
+        }
+        t += "\nTool: \n";
+        foreach (Globals.Material m in ListTool)
+        {
+            t += m.name + ": " + m.howMany + "  ";
+        }
+        return t;
+    }
 }

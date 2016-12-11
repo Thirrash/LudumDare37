@@ -413,6 +413,7 @@ GameObject:
   - 33: {fileID: 33000013920418882}
   - 23: {fileID: 23000012647421768}
   - 114: {fileID: 114000011848400982}
+  - 65: {fileID: 65000011914215860}
   m_Layer: 0
   m_Name: Work Place
   m_TagString: Workplace
@@ -566,6 +567,7 @@ GameObject:
   - 33: {fileID: 33000012197568780}
   - 23: {fileID: 23000011822537834}
   - 114: {fileID: 114000010258611424}
+  - 114: {fileID: 114000013735881760}
   m_Layer: 0
   m_Name: Red Book 1
   m_TagString: Untagged
@@ -919,7 +921,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011895207920}
   m_LocalRotation: {x: 0.4998298, y: 0.4998298, z: 0.5001702, w: -0.5001702}
-  m_LocalPosition: {x: 165.06789, y: 10.81, z: 136.5352}
+  m_LocalPosition: {x: 177.49, y: 11.020931, z: 122.08874}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.2}
   m_LocalEulerAnglesHint: {x: -89.961006, y: 0, z: 270}
   m_Children:
@@ -3089,6 +3091,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010212718480}
   m_Mesh: {fileID: 4300000, guid: 34cc23cb11080674086d4d06b61abe3b, type: 3}
+--- !u!65 &65000011914215860
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011895207920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 15, z: 5}
+  m_Center: {x: 0, y: 0, z: -1.5}
 --- !u!108 &108000012906740812
 Light:
   m_ObjectHideFlags: 1
@@ -3211,6 +3225,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68468de851ceb95439379102914a74a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000013735881760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012486139446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0b44807115288418ea81df9e23a4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198000011290595654

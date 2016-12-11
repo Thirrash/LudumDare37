@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public class RecepiceButtton : MonoBehaviour {
+public class RecepiceButtton : EventTrigger
+{
     public Recepiece rec;
     private Button _button;
+    public Text text;
     Player player;
     MaterialEquipment matEq;
 
@@ -22,12 +24,20 @@ public class RecepiceButtton : MonoBehaviour {
 	}
     public void Click()
     {
-        Debug.Log("Click");
         matEq.Add( rec.createObject );
 
         List<Resource> matList = matEq.GetList( );
         foreach( Globals.Material m in rec.ListMaterial ) {
             matEq.GetResourceByName( m.name ).currObjects -= m.howMany;
         }
+    }
+    public override void OnPointerEnter(PointerEventData data)
+    {
+        text.text = rec.objName + ": " + rec.GetString();
+    }
+
+    public override void OnPointerExit(PointerEventData data)
+    {
+        text.text = "";
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Data : EventTrigger {
     public EquipableObject resourse;
     public Text text;
+    public Text textInstance;
     Button but;
 
 	void Start () {
@@ -24,11 +25,11 @@ public class Data : EventTrigger {
         Player.instance.controller.ReplacePlacable( resourse as PlacableObject );
     }
 
-    void OnPointerEnter( ) {
-        EqTooltip.textInstance.text = resourse.objName + ": " + resourse.currObjects;
+    public override void OnPointerEnter(PointerEventData data) {
+        textInstance.text = resourse.objName + ": " + resourse.currObjects;
     }
 
-    void OnPointerExit( ) {
-        EqTooltip.textInstance.text = "";
+    public override void OnPointerExit(PointerEventData data) {
+        textInstance.text = "";
     }
 }

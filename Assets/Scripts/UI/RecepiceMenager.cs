@@ -7,6 +7,7 @@ public class RecepiceMenager : MonoBehaviour {
     public GameObject workPlaceObject;
     public GameObject prefab;
     public GameObject content;
+    public Text text;
     private WorkPlace _workPlace;
     void Start()
     {
@@ -45,6 +46,7 @@ public class RecepiceMenager : MonoBehaviour {
         GameObject pol = Instantiate(prefab) as GameObject;
         pol.transform.parent = content.gameObject.transform;
         pol.GetComponent<RecepiceButtton>().rec = r;
+        pol.GetComponent<RecepiceButtton>().text = text;
         createConent.Add(pol);
     }
     void IsInteracteblrButton(GameObject ob, bool t)
