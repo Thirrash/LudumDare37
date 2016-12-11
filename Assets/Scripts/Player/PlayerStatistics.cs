@@ -6,6 +6,7 @@ public class PlayerStatistics : MonoBehaviour
 {
     public PlayerSkills skills { get; private set; }
     public float pickDistance = 1.0f;
+    public float buildDistance = 2.0f;
 
     [SerializeField] float _movementVerticalSpeed;
     public float movementVerticalSpeed {

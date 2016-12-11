@@ -4,6 +4,7 @@ using System;
 using UnityEngine.UI;
 
 using Globals;
+
 public class PlayerController : MonoBehaviour
 {
     public Text tooltipText;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     bool isAbleToJump = true;
     string lastHarvestableName;
     bool isTooltipToBeRefreshed = false;
+    GameObject lastPlacedOnFloor;
 
     void Start( ) {
         player = Player.instance;
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
         EventManager.StartListening( EventTypes.playerRight, MoveRight );
         EventManager.StartListening( EventTypes.playerJump, Jump );
         EventManager.StartListening( EventTypes.playerPick, Pick );
+        EventManager.StartListening( EventTypes.rotateObject, RotatePlacable );
     }
 
     void OnDestroy( ) {
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
         EventManager.StopListening( EventTypes.playerRight, MoveRight );
         EventManager.StopListening( EventTypes.playerJump, Jump );
         EventManager.StopListening( EventTypes.playerPick, Pick );
+        EventManager.StopListening( EventTypes.rotateObject, RotatePlacable );
     }
 
     void Update( ) {
@@ -70,12 +74,30 @@ public class PlayerController : MonoBehaviour
                 }
                 isTooltipToBeRefreshed = false;
             }
+            else if( colliderOnMouse.gameObject.tag == Tags.Floor ) {
+                PlacableObject placable = GetComponent<PlacableObject>( );
+
+                
+                if( Vector3.Distance( transform.position,
+                                      colliderOnMouse.gameObject.transform.position) <= stats.buildDistance ) {
+                    if( lastPlacedOnFloor != null ) {
+                        Destroy( lastPlacedOnFloor );
+                    }
+                    BuildPlace.instance.HighlightTile( colliderOnMouse.gameObject.transform.position );
+                    if( placable == null )
+                        return;
+                    lastPlacedOnFloor = placable.SetObject( BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x ),
+                                                            BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z ));
+                    
+                    ResetTooltip( );
+                }
+                else {
+                    ResetTooltip( );
+                }
+            }
             else {
                 ResetTooltip( );
             }
-        }
-        else {
-            ResetTooltip( );
         }
     }
 
@@ -114,29 +136,47 @@ public class PlayerController : MonoBehaviour
         }
         GetComponent<Rigidbody>( ).AddForce( new Vector3( 0.0f,
                                                           stats.jumpForce,
-                                                          0.0f),
-                                            ForceMode.Force );
+                                                          0.0f ),
+                                             ForceMode.Force );
         isAbleToJump = false;
         timeFromLastJump = 0.0f;
     }
 
     void Pick( ) {
-        isTooltipToBeRefreshed = true;
-        float distanceBetween = Vector3.Distance( transform.position,
-                                                  colliderOnMouse.gameObject.transform.position);
-        if( distanceBetween <= stats.pickDistance ) {
-            Resource[] resources = colliderOnMouse.gameObject.GetComponents<Resource>( );
-            Tool[] tools = colliderOnMouse.gameObject.GetComponents<Tool>( );
+        if( colliderOnMouse.gameObject.tag == Tags.Harvestable ) {
+            isTooltipToBeRefreshed = true;
+            float distanceBetween = Vector3.Distance( transform.position,
+                                                      colliderOnMouse.gameObject.transform.position );
+            if( distanceBetween <= stats.pickDistance ) {
+                Resource[] resources = colliderOnMouse.gameObject.GetComponents<Resource>( );
+                Tool[] tools = colliderOnMouse.gameObject.GetComponents<Tool>( );
 
-            foreach( Resource r in resources ) {
-                player.matEq.Add( r );
-                r.DecreaseObjectQuantity( 1 );
-            }
+                foreach( Resource r in resources ) {
+                    player.matEq.Add( r );
+                    r.DecreaseObjectQuantity( 1 );
+                }
 
-            foreach( Tool t in tools ) {
-                player.toolEq.Add( t );
-                t.DecreaseObjectQuantity( 1 );
+                foreach( Tool t in tools ) {
+                    player.toolEq.Add( t );
+                    t.DecreaseObjectQuantity( 1 );
+                }
             }
+        }
+        else if( colliderOnMouse.gameObject.tag == Tags.Floor ) {
+            PlacableObject placable = GetComponent<PlacableObject>( );
+            if( placable != null ) {
+                int tileX = BuildPlace.instance.GetTileXFromPosition( colliderOnMouse.gameObject.transform.position.x );
+                int tileZ = BuildPlace.instance.GetTileZFromPosition( colliderOnMouse.gameObject.transform.position.z );
+                placable.SetObject( tileX, tileZ );
+                placable.DecreaseObjectQuantity( 1 );
+            }
+        }
+    }
+
+    void RotatePlacable( ) {
+        PlacableObject placable = GetComponent<PlacableObject>( );
+        if( placable != null ) {
+            placable.Rotate( );
         }
     }
 }
