@@ -56,5 +56,9 @@ public class KeyEventTrigger : MonoBehaviour
         if( Input.GetButtonDown( PlayerInput.Fire2 ) ) {
             EventManager.TriggerEvent( EventTypes.showCrafting );
         }
+
+		if (Input.GetButtonDown (PlayerInput.Cancel)) {
+			EventManager.TriggerEvent (EventTypes.quitGame);
+		}
 	}
 }

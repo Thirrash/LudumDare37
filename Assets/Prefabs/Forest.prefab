@@ -1381,8 +1381,8 @@ MonoBehaviour:
     Tree1: {fileID: 1000013116517728, guid: d8dbea7f1c4eb9440aab9bb91bc9bdf5, type: 2}
     Tree2: {fileID: 1000011298261540, guid: 3f1d2f74bd1a7a140b60e615eb9ae577, type: 2}
     Tree3: {fileID: 1000010679519322, guid: 8adbc042fa5f27847a49d45ae556b2ec, type: 2}
-  leafyTree: 10
-  coniferousTree: 10
+  leafyTree: 16
+  coniferousTree: 16
   deflaut: 3
   all: 0
 --- !u!135 &135000010943524370

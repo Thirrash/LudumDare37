@@ -207,7 +207,7 @@ MonoBehaviour:
   buildDistance: 3
   _movementVerticalSpeed: 5
   _movementHorizontalSpeed: 3
-  _cameraSpeed: 90
+  _cameraSpeed: 60
   _maxWeight: 100
   _jumpForce: 200
   _timeBetweenJumps: 0.8

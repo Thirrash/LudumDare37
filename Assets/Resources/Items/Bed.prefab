@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013288351180}
   - 33: {fileID: 33000011246245748}
-  - 65: {fileID: 65000012967758738}
   - 23: {fileID: 23000013922339992}
+  - 65: {fileID: 65000012967758738}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Placed
@@ -35,9 +35,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011139481696}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 165.28336, y: 13.630064, z: 123.11027}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 192.77, y: 10.5, z: 174.45224}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,13 +55,13 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0b0f3dbd9cdb9804a90b2e0af6590c8c, type: 2}
+  - {fileID: 2100000, guid: f029175218d022d41945557dbca4f2a2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_SelectedWireframeHidden: 0
@@ -77,7 +77,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011139481696}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: b372745625597c6449d11dca976d55ba, type: 3}
 --- !u!65 &65000012967758738
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -88,5 +88,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.35292011, y: 0.20191836, z: 0.19664492}
+  m_Center: {x: 0.08992049, y: 0.11, z: 0}

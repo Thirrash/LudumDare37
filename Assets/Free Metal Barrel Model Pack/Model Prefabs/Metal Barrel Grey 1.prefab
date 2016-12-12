@@ -12,9 +12,14 @@ GameObject:
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
   - 64: {fileID: 6400000}
+  - 114: {fileID: 114000011971433548}
+  - 114: {fileID: 114000010555729102}
+  - 114: {fileID: 114000011487505608}
+  - 114: {fileID: 114000010606939856}
+  - 114: {fileID: 114000013327970668}
   m_Layer: 0
   m_Name: Metal Barrel Grey 1
-  m_TagString: Untagged
+  m_TagString: Harvestable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +135,83 @@ Prefab:
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!114 &114000010555729102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec51c9f4c0408a043b5429814cd0ed88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weight: 0
+  _objName: 
+  _currObjects: 4
+  avatar: {fileID: 0}
+  tag: 
+--- !u!114 &114000010606939856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d554a5a5afb9f4418b0d4e55929a656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weight: 0
+  _objName: 
+  _currObjects: 7
+  avatar: {fileID: 0}
+  tag: 
+--- !u!114 &114000011487505608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4be9d7cdae7374aaa90357323008fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weight: 0
+  _objName: 
+  _currObjects: 6
+  avatar: {fileID: 0}
+  tag: 
+--- !u!114 &114000011971433548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c6f751ee0e4574fbad4a4af7580adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weight: 0
+  _objName: 
+  _currObjects: 5
+  avatar: {fileID: 0}
+  tag: 
+--- !u!114 &114000013327970668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b00967d41281440bdb6e8871db1ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weight: 0
+  _objName: 
+  _currObjects: 4
+  avatar: {fileID: 0}
+  tag: 
