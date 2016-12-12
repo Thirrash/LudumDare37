@@ -20,6 +20,7 @@ class Chair : Recepiece
         rec.weight = 1.6f;
         rec.prefab = Resources.Load("Items/Chair") as GameObject;
         rec.currObjects = 1;
+        rec.avatar = image;
         createObject = rec;
     }
 }

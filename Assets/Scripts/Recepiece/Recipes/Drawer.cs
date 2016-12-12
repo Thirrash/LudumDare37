@@ -24,6 +24,7 @@ class Drawer : Recepiece
         rec.weight = 1.6f;
         rec.prefab = Resources.Load("Items/Drawer") as GameObject;
         rec.currObjects = 1;
+        rec.avatar = image;
         createObject = rec;
     }
 }

@@ -22,6 +22,7 @@ class Wall4x4Window : Recepiece
         rec.weight = 6.4f;
         rec.prefab = Resources.Load("Wall/Wall4x4Window") as GameObject;
         rec.currObjects = 1;
+        rec.avatar = image;
         createObject = rec;
     }
 }

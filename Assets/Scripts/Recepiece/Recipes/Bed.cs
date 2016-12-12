@@ -21,6 +21,7 @@ class Bed : Recepiece
         rec.weight = 3.2f;
         rec.prefab = Resources.Load("Items/Bed") as GameObject;
         rec.currObjects = 1;
+        rec.avatar = image;
         createObject = rec;
     }
 }

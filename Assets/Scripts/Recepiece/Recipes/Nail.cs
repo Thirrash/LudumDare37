@@ -18,6 +18,7 @@ class Nail : Recepiece
         rec.weight = 1.5f;
         rec.prefab = Resources.Load("Items/Nail") as GameObject;
         rec.currObjects = 1;
+        rec.avatar = image;
         createObject = rec;
     }
 }

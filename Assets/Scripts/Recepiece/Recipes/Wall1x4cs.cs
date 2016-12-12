@@ -19,6 +19,7 @@ using System.Linq;
         rec.weight = 1.6f;
         rec.prefab = Resources.Load("Wall/Wall1x4") as GameObject;
         rec.currObjects = 1;
+        rec.avatar = image;
         createObject = rec;
     }
 }

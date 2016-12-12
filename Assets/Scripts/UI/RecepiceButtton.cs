@@ -8,10 +8,13 @@ public class RecepiceButtton : EventTrigger
     public Recepiece rec;
     private Button _button;
     public Text text;
+    private Image _image;
     Player player;
     MaterialEquipment matEq;
 
 	void Start () {
+        _image = GetComponentInChildren<Image>();
+        _image.overrideSprite = rec.image;
         _button = GetComponent<Button>();
         _button.onClick.AddListener(() => Click());
         GetComponentInChildren<Text>().text = rec.objName;
