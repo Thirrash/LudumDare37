@@ -13,7 +13,7 @@ class Door : Recepiece
         image = Resources.Load<Sprite>("Image/Items/Door");
         objName = "Door";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
-        rec.length = 1;
+        rec.length = 2;
         rec.width = 1;
         rec.objName = objName;
         rec.weight = 1.6f;

@@ -15,8 +15,8 @@ class Bed : Recepiece
         image = Resources.Load<Sprite>("Image/Items/Bed");
         objName = "Bed";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
-        rec.length = 2;
-        rec.width = 1;
+        rec.length = 3;
+        rec.width = 2;
         rec.objName = objName;
         rec.weight = 3.2f;
         rec.prefab = Resources.Load("Items/Bed") as GameObject;

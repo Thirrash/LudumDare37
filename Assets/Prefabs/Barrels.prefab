@@ -1374,15 +1374,15 @@ MonoBehaviour:
   - {fileID: 1000012950280658}
   - {fileID: 1000011200579472}
   leafy:
-    Tree1: {fileID: 100000, guid: ca90c396dc4ab9745a326c1d3ea0fdb2, type: 2}
-    Tree2: {fileID: 100000, guid: ed611a3ded592db4082a86450ac3e55f, type: 2}
-    Tree3: {fileID: 100000, guid: ac8cd8e6320ae3e4b927387f08c24c7e, type: 2}
+    Tree1: {fileID: 100000, guid: 3965cf9c520a0e14b884b3b9863d08c4, type: 2}
+    Tree2: {fileID: 100000, guid: 6e24a1918bf3a9c4a817810445877795, type: 2}
+    Tree3: {fileID: 100000, guid: c7caa900763c8f245bef8d97357a5ad4, type: 2}
   coniferous:
-    Tree1: {fileID: 100000, guid: ca90c396dc4ab9745a326c1d3ea0fdb2, type: 2}
-    Tree2: {fileID: 100000, guid: ed611a3ded592db4082a86450ac3e55f, type: 2}
-    Tree3: {fileID: 100000, guid: ac8cd8e6320ae3e4b927387f08c24c7e, type: 2}
-  leafyTree: 16
-  coniferousTree: 16
+    Tree1: {fileID: 100000, guid: 52737d5a230d9cf429c24c6b342e5444, type: 2}
+    Tree2: {fileID: 100000, guid: 4985d7f3ab028924fa17e1f0c92287b3, type: 2}
+    Tree3: {fileID: 100000, guid: 0131770b238311041910d0a345caf914, type: 2}
+  leafyTree: 6
+  coniferousTree: 6
   deflaut: 3
   all: 0
 --- !u!135 &135000011490975956

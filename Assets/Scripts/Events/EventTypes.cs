@@ -18,5 +18,6 @@ public enum EventTypes {
     showStats,
     showCrafting,
 
-    rotateObject
+    rotateObject,
+	quitGame
 }
