@@ -15,7 +15,7 @@ class Table : Recepiece
         image = Resources.Load<Sprite>("Image/Items/Table");
         objName = "Table";
         PlacableObject rec = ga.AddComponent<PlacableObject>();
-        rec.length = 1;
+        rec.length = 3;
         rec.width = 1;
         rec.objName = objName;
         rec.weight = 1.6f;
