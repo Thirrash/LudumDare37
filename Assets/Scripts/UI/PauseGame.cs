@@ -5,6 +5,7 @@ public class PauseGame : MonoBehaviour {
     public GameObject Inventory;
     public GameObject Statistic;
     public GameObject Crafting;
+    public GameObject Instruction;
     public GameObject Workplace;
     Vector3 playerPos;
 
@@ -22,14 +23,14 @@ public class PauseGame : MonoBehaviour {
     }
         
 	void Update () {
-        if(Statistic.activeSelf || Inventory.activeSelf || Crafting.activeSelf)
+        if(Statistic.activeSelf || Inventory.activeSelf || Crafting.activeSelf || Instruction.activeSelf)
         {
             Player.instance.controller.StopListeningInput( );
             Time.timeScale = 0;
             //Player.instance.gameObject.transform.position = playerPos;
             Cursor.lockState = CursorLockMode.None;
         }
-        if (!Statistic.activeSelf && !Inventory.activeSelf && !Crafting.activeSelf)
+        if (!Statistic.activeSelf && !Inventory.activeSelf && !Crafting.activeSelf && !Instruction.activeSelf)
         {
             Player.instance.controller.StartListeningInput( );
             Time.timeScale = 1;
